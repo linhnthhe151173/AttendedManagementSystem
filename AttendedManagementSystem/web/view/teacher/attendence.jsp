@@ -82,7 +82,7 @@
                             <td>HE151173</td>
                             <td>Nguyễn Thị Hải Linh</td>
                             <td><input type="radio" name="attendence" value="1" />Attended 
-                            <input type="radio" name="attendence" value="0" />Absent</td>
+                                <input type="radio" name="attendence" value="0" />Absent</td>
                         </tr>
                         <tr>
                             <th scope="row">2</th>
@@ -91,7 +91,7 @@
                             <td>HE151173</td>
                             <td>Nguyễn Thị Hải Linh</td>
                             <td><input type="radio" name="attendence" value="1" />Attended
-                            <input type="radio" name="attendence" value="0" />Absent</td>
+                                <input type="radio" name="attendence" value="0" />Absent</td>
                         </tr>
                         <tr>
                             <th scope="row">3</th>
@@ -100,7 +100,7 @@
                             <td>HE151173</td>
                             <td>Nguyễn Thị Hải Linh</td>
                             <td><input type="radio" name="attendence" value="1" />Attended
-                            <input type="radio" name="attendence" value="0" />Absent</td>
+                                <input type="radio" name="attendence" value="0" />Absent</td>
                         </tr>
                         <tr>
                             <th scope="row">4</th>
@@ -109,7 +109,7 @@
                             <td>HE151173</td>
                             <td>Nguyễn Thị Hải Linh</td>
                             <td><input type="radio" name="attendence" value="1" />Attended
-                            <input type="radio" name="attendence" value="0" />Absent</td>
+                                <input type="radio" name="attendence" value="0" />Absent</td>
                         </tr>
                         <tr>
                             <th scope="row">5</th>
@@ -118,7 +118,7 @@
                             <td>HE151173</td>
                             <td>Nguyễn Thị Hải Linh</td>
                             <td><input type="radio" name="attendence" value="1" />Attended
-                            <input type="radio" name="attendence" value="0" />Absent</td>
+                                <input type="radio" name="attendence" value="0" />Absent</td>
                         </tr>
                         <tr>
                             <th scope="row">6</th>
@@ -127,16 +127,27 @@
                             <td>HE151173</td>
                             <td>Nguyễn Thị Hải Linh</td>
                             <td><input type="radio" name="attendence" value="1" />Attended
-                            <input type="radio" name="attendence" value="0" />Absent</td>
+                                <input type="radio" name="attendence" value="0" />Absent</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            
+
             <div class="col text-center">
                 <button type="button" class="btn" style="background-color: #EF7F1B;
                         color: white;">Submit</button>
             </div>
+
+            <!-- Footer -->
+            <footer class="page-footer font-small blue" style="margin-top: 10px;">
+
+                <!-- Copyright -->
+                <div class="footer-copyright text-center py-3">© Powered by <span style="color: #EF7F1B;">Linhnthhe151173</span>
+                </div>
+                <!-- Copyright -->
+
+            </footer>
+            <!-- Footer -->
         </div>
     </body>
 </html>
