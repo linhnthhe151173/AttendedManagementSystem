@@ -1,6 +1,6 @@
 <%-- 
-    Document   : attendence
-    Created on : Dec 4, 2021, 3:21:36 PM
+    Document   : submitted_attendence
+    Created on : Dec 7, 2021, 2:07:13 PM
     Author     : Linh
 --%>
 
@@ -13,7 +13,7 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <title>attendece</title>
+        <title>submitted_attendence</title>
     </head>
     <body>
         <!-- header -->
@@ -34,39 +34,8 @@
             </div>
         </nav>
 
-        <!-- Container -->
-        <div class="container">
-            <div>
-                <button type="button" class="btn" style="background-color: #EF7F1B;
-                        margin-top: 20px;"><a href="today_schedule.jsp" style="color: white;
-                                                                                        text-decoration: none;">Back</a></button>
-            </div>
-            <div class="row justify-content-center">
-                <div style="width: 400px;
-                     height: 200px;
-                     text-align: center;
-                     margin-top: 20px;">
-                    <table class="table table-bordered">
-                        <tr>
-                            <th scope="row">Subject: </th>
-                            <td>PRJ301</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Class: </th>
-                            <td>SE1511</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Date: </th>
-                            <td>02/08/2021</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Time slot: </th>
-                            <td>07:30 - 9:30</td>
-                        </tr>
-                    </table>
-                </div>   
-            </div>
 
+        <div class="container">
             <div style="margin-top: 20px;">
                 <table class="table table-striped">
                     <thead>
@@ -77,6 +46,7 @@
                             <th scope="col">Student Code</th>
                             <th scope="col">Full Name</th>
                             <th scope="col">Attendance</th>
+                            <th scope="col">Edit</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -86,8 +56,8 @@
                             <td>LinhNTHHE151173@fpt.edu.vn</td>
                             <td>HE151173</td>
                             <td>Nguyễn Thị Hải Linh</td>
-                            <td><input type="radio" name="attendence" value="1" />Attended 
-                                <input type="radio" name="attendence" value="0" />Absent</td>
+                            <td style="color: green;">Present</td>
+                            <td><a href="edit.jsp">Edit</a></td>
                         </tr>
                         <tr>
                             <th scope="row">2</th>
@@ -95,8 +65,8 @@
                             <td>LinhNTHHE151173@fpt.edu.vn</td>
                             <td>HE151173</td>
                             <td>Nguyễn Thị Hải Linh</td>
-                            <td><input type="radio" name="attendence" value="1" />Attended
-                                <input type="radio" name="attendence" value="0" />Absent</td>
+                            <td style="color: red;">Absent</td>
+                            <td><a href="edit.jsp">Edit</a></td>
                         </tr>
                         <tr>
                             <th scope="row">3</th>
@@ -104,8 +74,8 @@
                             <td>LinhNTHHE151173@fpt.edu.vn</td>
                             <td>HE151173</td>
                             <td>Nguyễn Thị Hải Linh</td>
-                            <td><input type="radio" name="attendence" value="1" />Attended
-                                <input type="radio" name="attendence" value="0" />Absent</td>
+                            <td style="color: green;">Present</td>
+                            <td><a href="edit.jsp">Edit</a></td>
                         </tr>
                         <tr>
                             <th scope="row">4</th>
@@ -113,8 +83,8 @@
                             <td>LinhNTHHE151173@fpt.edu.vn</td>
                             <td>HE151173</td>
                             <td>Nguyễn Thị Hải Linh</td>
-                            <td><input type="radio" name="attendence" value="1" />Attended
-                                <input type="radio" name="attendence" value="0" />Absent</td>
+                            <td style="color: green;">Present</td>
+                            <td><a href="edit.jsp">Edit</a></td>
                         </tr>
                         <tr>
                             <th scope="row">5</th>
@@ -122,8 +92,8 @@
                             <td>LinhNTHHE151173@fpt.edu.vn</td>
                             <td>HE151173</td>
                             <td>Nguyễn Thị Hải Linh</td>
-                            <td><input type="radio" name="attendence" value="1" />Attended
-                                <input type="radio" name="attendence" value="0" />Absent</td>
+                            <td style="color: red;">Absent</td>
+                            <td><a href="edit.jsp">Edit</a></td>
                         </tr>
                         <tr>
                             <th scope="row">6</th>
@@ -131,29 +101,13 @@
                             <td>LinhNTHHE151173@fpt.edu.vn</td>
                             <td>HE151173</td>
                             <td>Nguyễn Thị Hải Linh</td>
-                            <td><input type="radio" name="attendence" value="1" />Attended
-                                <input type="radio" name="attendence" value="0" />Absent</td>
+                            <td style="color: red;">Absent</td>
+                            <td><a href="edit.jsp">Edit</a></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-
-            <div class="col text-center">
-                <button type="button" class="btn" style="background-color: #EF7F1B;
-                        color: white;"><a href="submitted_attendence.jsp" style="color: white;
-                     text-decoration: none;">Submit</a></button>
-            </div>
-
-            <!-- Footer -->
-            <footer class="page-footer font-small blue" style="margin-top: 10px;">
-
-                <!-- Copyright -->
-                <div class="footer-copyright text-center py-3">© Powered by <span style="color: #EF7F1B;">Linhnthhe151173</span>
-                </div>
-                <!-- Copyright -->
-
-            </footer>
-            <!-- Footer -->
         </div>
+
     </body>
 </html>
