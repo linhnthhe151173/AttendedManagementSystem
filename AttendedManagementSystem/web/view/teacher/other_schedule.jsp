@@ -1,6 +1,6 @@
 <%-- 
-    Document   : today_schedule
-    Created on : Dec 6, 2021, 8:35:38 PM
+    Document   : other_schedule
+    Created on : Dec 7, 2021, 12:04:27 PM
     Author     : Linh
 --%>
 
@@ -13,7 +13,7 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <title>today_schedule</title>
+        <title>other_schedule</title>
     </head>
     <body>
         <!-- header -->
@@ -33,25 +33,16 @@
                 </ul>
             </div>
         </nav>
-
+        
         <!-- Container -->
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <p style="margin-top: 20px;
-                       font-weight: bold;">Other's schedule</p>
-                </div>
-                <div class="col-md-9" style="text-align: center;">
-                    <button type="button" class="btn" style="background-color: #EF7F1B;
-                            margin-top: 15px;"><a href="other_schedule.jsp" style="color: white;
-                         text-decoration: none;">Check</a></button>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-md-3">
-                    <p style="margin-top: 20px;
-                       font-weight: bold;">Today's schedule</p>
+                    <h6 style="margin-top: 20px;">Find attendance 's schedule </h6>
+                    <form style="display: flex;">
+                        <input type="date" name="" value="" style="border-radius: 5px;"/>
+                        <button type="button" class="btn" style="background-color: #EF7F1B;">Search</button>
+                    </form>
                 </div>
                 <div class="col-md-9" style="margin-top: 20px;">
                     <div style="margin-bottom: 40px;">
@@ -77,7 +68,7 @@
                                         <td>Nguyen Hai Linh</td>
                                         <td>PRJ301</td>
                                         <td>Java Web Application</td>
-                                        <td><a href="attendence.jsp">SE1511</a></td>
+                                        <td><a href="class_detail.jsp">SE1511</a></td>
                                         <td>30</td>
                                         <td>7:30-9:30</td>
                                     </tr>
@@ -86,7 +77,7 @@
                                         <td>Nguyen Hai Linh</td>
                                         <td>PRJ301</td>
                                         <td>Java Web Application</td>
-                                        <td><a href="attendence.jsp">SE1511</a></td>
+                                        <td><a href="class_detail.jsp">SE1511</a></td>
                                         <td>30</td>
                                         <td>7:30-9:30</td>
                                     </tr>
@@ -95,7 +86,7 @@
                                         <td>Nguyen Hai Linh</td>
                                         <td>PRJ301</td>
                                         <td>Java Web Application</td>
-                                        <td><a href="attendence.jsp">SE1511</a></td>
+                                        <td><a href="class_detail.jsp">SE1511</a></td>
                                         <td>30</td>
                                         <td>7:30-9:30</td>
                                     </tr>
@@ -103,14 +94,14 @@
                             </table>
                         </div>
                     </div>
-
+                    
                     <!--time 2-->
                     <div>
                         <div style="text-align: center;">
                             <h5 style="color: #EF7F1B;">Date: 02-08-2021</h5> 
                         </div>
                         <div class="alert alert-warning" role="alert">
-                            You don't have a schedule today.
+                            No schedule yet
                         </div>
                         
                     </div>
