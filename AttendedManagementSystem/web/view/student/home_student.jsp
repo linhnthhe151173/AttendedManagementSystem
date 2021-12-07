@@ -156,8 +156,12 @@
                                 <td>SE1511</td>
                                 <td style="color: green;">Present</td>
                             </tr>
+                            <tr>
+                                <td colspan="6" style="text-align: center;"><h5>2 ABSENT ON 30 TOTAL</h5></td>
+                            </tr>
                         </tbody>
                     </table>
+                    
                 </div>
             </div>
         </div>
