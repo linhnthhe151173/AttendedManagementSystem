@@ -36,6 +36,11 @@
 
         <!-- Container -->
         <div class="container">
+            <div>
+                <button type="button" class="btn" style="background-color: #EF7F1B;
+                        margin-top: 20px;"><a href="today_schedule.jsp" style="color: white;
+                                                                                        text-decoration: none;">Back</a></button>
+            </div>
             <div class="row justify-content-center">
                 <div style="width: 400px;
                      height: 200px;

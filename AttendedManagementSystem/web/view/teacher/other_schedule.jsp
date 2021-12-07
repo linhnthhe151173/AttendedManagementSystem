@@ -33,9 +33,13 @@
                 </ul>
             </div>
         </nav>
-        
+
         <!-- Container -->
         <div class="container">
+            <div>
+                <button type="button" class="btn" style="background-color: #EF7F1B;margin-top: 20px;"><a href="today_schedule.jsp" style="color: white;
+                                                                                        text-decoration: none;">Back</a></button>
+            </div>
             <div class="row">
                 <div class="col-md-3">
                     <h6 style="margin-top: 20px;">Find attendance 's schedule </h6>
@@ -94,7 +98,7 @@
                             </table>
                         </div>
                     </div>
-                    
+
                     <!--time 2-->
                     <div>
                         <div style="text-align: center;">
@@ -103,7 +107,7 @@
                         <div class="alert alert-warning" role="alert">
                             No schedule yet
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
