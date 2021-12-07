@@ -58,41 +58,41 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">STT</th>
-                                        <th scope="col">Teacher's Name</th>
                                         <th scope="col">Subject's Code</th>
                                         <th scope="col">Subject's Name</th>
                                         <th scope="col">Class's Name</th>
                                         <th scope="col">Number</th>
                                         <th scope="col">Time Slot</th>
+                                        <th scope="col">Edit</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td>Nguyen Hai Linh</td>
                                         <td>PRJ301</td>
                                         <td>Java Web Application</td>
                                         <td><a href="class_detail.jsp">SE1511</a></td>
                                         <td>30</td>
                                         <td>7:30-9:30</td>
+                                        <td><a href="attendence.jsp">Edit</a></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">2</th>
-                                        <td>Nguyen Hai Linh</td>
                                         <td>PRJ301</td>
                                         <td>Java Web Application</td>
                                         <td><a href="class_detail.jsp">SE1511</a></td>
                                         <td>30</td>
                                         <td>7:30-9:30</td>
+                                        <td><a href="attendence.jsp">Edit</a></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">3</th>
-                                        <td>Nguyen Hai Linh</td>
                                         <td>PRJ301</td>
                                         <td>Java Web Application</td>
                                         <td><a href="class_detail.jsp">SE1511</a></td>
                                         <td>30</td>
                                         <td>7:30-9:30</td>
+                                        <td><a href="attendence.jsp">Edit</a></td>
                                     </tr>
                                 </tbody>
                             </table>
