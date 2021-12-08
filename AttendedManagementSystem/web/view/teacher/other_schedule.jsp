@@ -4,6 +4,9 @@
     Author     : Linh
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,7 +21,7 @@
     <body>
         <!-- header -->
         <nav class="navbar navbar-expand-md sticky-top" style="background-color: #EF7F1B;">
-            <a class="navbar-brand" href="#" style="color: white;">Attendence Management</a>
+            <a class="navbar-brand" href="today_schedule" style="color: white;">Attendence Management</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -37,78 +40,98 @@
         <!-- Container -->
         <div class="container">
             <div>
-                <button type="button" class="btn" style="background-color: #EF7F1B;margin-top: 20px;"><a href="today_schedule.jsp" style="color: white;
-                                                                                        text-decoration: none;">Back</a></button>
+                <button type="button" class="btn" style="background-color: #EF7F1B;margin-top: 20px;"><a href="today_schedule" style="color: white;
+                                                                                                         text-decoration: none;">Back</a></button>
             </div>
             <div class="row">
                 <div class="col-md-3">
                     <h6 style="margin-top: 20px;">Find attendance 's schedule </h6>
-                    <form style="display: flex;">
-                        <input type="date" name="" value="" style="border-radius: 5px;"/>
-                        <button type="button" class="btn" style="background-color: #EF7F1B;">Search</button>
+                    <form action="other_schedule" style="display: flex;" method="POST">
+                        <input type="date" name="search_date" value="${search_date}" style="border-radius: 5px;"/>
+                        <input type="submit" style="background-color: #EF7F1B;
+                               border: none;" value="Search">
                     </form>
                 </div>
                 <div class="col-md-9" style="margin-top: 20px;">
-                    <div style="margin-bottom: 40px;">
-                        <div style="text-align: center;">
-                            <h5 style="color: #EF7F1B;">Date: 02-08-2021</h5> 
-                        </div>
-                        <div>
+                    <c:choose>
+                        <c:when test="${search_date == null}">
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <th scope="col">STT</th>
                                         <th scope="col">Subject's Code</th>
-                                        <th scope="col">Subject's Name</th>
                                         <th scope="col">Class's Name</th>
-                                        <th scope="col">Number</th>
                                         <th scope="col">Time Slot</th>
+                                        <th scope="col">Date</th>
                                         <th scope="col">Edit</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>PRJ301</td>
-                                        <td>Java Web Application</td>
-                                        <td><a href="class_detail.jsp">SE1511</a></td>
-                                        <td>30</td>
-                                        <td>7:30-9:30</td>
-                                        <td><a href="attendence.jsp">Edit</a></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>PRJ301</td>
-                                        <td>Java Web Application</td>
-                                        <td><a href="class_detail.jsp">SE1511</a></td>
-                                        <td>30</td>
-                                        <td>7:30-9:30</td>
-                                        <td><a href="attendence.jsp">Edit</a></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>PRJ301</td>
-                                        <td>Java Web Application</td>
-                                        <td><a href="class_detail.jsp">SE1511</a></td>
-                                        <td>30</td>
-                                        <td>7:30-9:30</td>
-                                        <td><a href="attendence.jsp">Edit</a></td>
-                                    </tr>
+                                    <c:forEach items="${list_schedule_all}" var="sa" varStatus="status">
+                                        <tr>
+                                            <th scope="row">${status.count}</th>
+                                            <td>${sa.getSubjectID().getSubjectCode()}</td>
+                                            <td><a href="class_detail.jsp">${sa.getClassID().getClassName()}</a></td>
+                                            <td>${sa.getTimeSlotID().getTimeSlotStart()} - ${sa.getTimeSlotID().getTimeSlotEnd()}</td>
+                                            <td>${sa.getScheduleDate()}</td>
+                                            <td><a href="attendence.jsp">Edit</a></td>
+                                        </tr>
+                                    </c:forEach>
+
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
 
-                    <!--time 2-->
-                    <div>
-                        <div style="text-align: center;">
-                            <h5 style="color: #EF7F1B;">Date: 02-08-2021</h5> 
-                        </div>
-                        <div class="alert alert-warning" role="alert">
-                            No schedule yet
-                        </div>
+                        </c:when>
+                        <c:otherwise>
+                            <c:choose>
+                                <c:when test="${list_schedule.size() == 0 || list_schedule == null}">
+                                    <!--time 2-->
+                                    <div>
+                                        <div class="alert alert-warning" role="alert">
+                                            No schedule yet
+                                        </div>
 
-                    </div>
+                                    </div>
+                                </c:when>
+                                <c:otherwise>
+                                    <div style="margin-bottom: 40px;">
+                                        <div style="text-align: center;">
+                                            <c:forEach items="${list_schedule}" var="s" varStatus="status">
+                                                <c:if test="${status.last}"><h5 style="color: #EF7F1B;">Date: ${s.getScheduleDate()}</h5></c:if>
+                                            </c:forEach>
+                                        </div>
+                                        <div>
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">STT</th>
+                                                        <th scope="col">Subject's Code</th>
+                                                        <th scope="col">Subject's Name</th>
+                                                        <th scope="col">Class's Name</th>
+                                                        <th scope="col">Time Slot</th>
+                                                        <th scope="col">Edit</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <c:forEach items="${list_schedule}" var="s" varStatus="status">
+                                                        <tr>
+                                                            <th scope="row">${status.count}</th>
+                                                            <td>${s.getSubjectID().getSubjectCode()}</td>
+                                                            <td>${s.getSubjectID().getSubjectName()}</td>
+                                                            <td><a href="class_detail.jsp">${s.getClassID().getClassName()}</a></td>
+                                                            <td>${s.getTimeSlotID().getTimeSlotStart()} - ${s.getTimeSlotID().getTimeSlotEnd()}</td>
+                                                            <td><a href="attendence.jsp">Edit</a></td>
+                                                        </tr>
+                                                    </c:forEach>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:otherwise>
+                    </c:choose>
+
                 </div>
             </div>
         </div>

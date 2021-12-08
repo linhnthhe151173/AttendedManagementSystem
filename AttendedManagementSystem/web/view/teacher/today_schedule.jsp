@@ -19,7 +19,7 @@
     <body>
         <!-- header -->
         <nav class="navbar navbar-expand-md sticky-top" style="background-color: #EF7F1B;">
-            <a class="navbar-brand" href="#" style="color: white;">Attendence Management</a>
+            <a class="navbar-brand" href="today_schedule" style="color: white;">Attendence Management</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-md-9" style="text-align: center;">
                     <button type="button" class="btn" style="background-color: #EF7F1B;
-                            margin-top: 15px;"><a href="other_schedule.jsp" style="color: white;
+                            margin-top: 15px;"><a href="other_schedule" style="color: white;
                          text-decoration: none;">Check</a></button>
                 </div>
             </div>
