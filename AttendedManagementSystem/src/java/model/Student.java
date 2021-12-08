@@ -23,4 +23,5 @@ public class Student {
     private String StudentEmail;
     private String StudentPhone;
     private Date StudentDOB;
+    private Semester SemesterID;
 }

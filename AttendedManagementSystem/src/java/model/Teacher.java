@@ -15,7 +15,7 @@ import lombok.ToString;
 @ToString
 @Builder
 public class Teacher {
-    private int TeahcerID;
+    private int TeacherID;
     private String TeacherName;
     private String TeacherImage;
     private boolean TeacherGender;
