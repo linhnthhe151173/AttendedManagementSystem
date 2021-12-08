@@ -36,6 +36,12 @@
 
 
         <div class="container">
+            <div style="padding-top: 20px;">
+                <h6>Present: <span style="color: green;">4</span></h6>
+                <h6>Absent: <span style="color: red;">3</span></h6>
+                <h5>Detail</h5>
+            </div>
+            <hr>
             <div style="margin-top: 20px;">
                 <table class="table table-striped">
                     <thead>

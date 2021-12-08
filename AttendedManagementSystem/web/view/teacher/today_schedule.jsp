@@ -4,6 +4,7 @@
     Author     : Linh
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -49,71 +50,62 @@
             </div>
             <hr>
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <p style="margin-top: 20px;
                        font-weight: bold;">Today's schedule</p>
                 </div>
-                <div class="col-md-9" style="margin-top: 20px;">
-                    <div style="margin-bottom: 40px;">
-                        <div style="text-align: center;">
-                            <h5 style="color: #EF7F1B;">Date: 02-08-2021</h5> 
-                        </div>
-                        <div>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">STT</th>
-                                        <th scope="col">Teacher's Name</th>
-                                        <th scope="col">Subject's Code</th>
-                                        <th scope="col">Subject's Name</th>
-                                        <th scope="col">Class's Name</th>
-                                        <th scope="col">Number</th>
-                                        <th scope="col">Time Slot</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Nguyen Hai Linh</td>
-                                        <td>PRJ301</td>
-                                        <td>Java Web Application</td>
-                                        <td><a href="attendence.jsp">SE1511</a></td>
-                                        <td>30</td>
-                                        <td>7:30-9:30</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Nguyen Hai Linh</td>
-                                        <td>PRJ301</td>
-                                        <td>Java Web Application</td>
-                                        <td><a href="attendence.jsp">SE1511</a></td>
-                                        <td>30</td>
-                                        <td>7:30-9:30</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Nguyen Hai Linh</td>
-                                        <td>PRJ301</td>
-                                        <td>Java Web Application</td>
-                                        <td><a href="attendence.jsp">SE1511</a></td>
-                                        <td>30</td>
-                                        <td>7:30-9:30</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                <div class="col-md-10" style="margin-top: 20px;">
+                    <c:choose>
+                        <c:when test="${list_schedule.size() == 0 || list_schedule == null}">
+                            <!--time 2-->
+                            <div>
+                                <div style="text-align: center;">
+                                    <h5 style="color: #EF7F1B;">Date: ${date}</h5> 
+                                </div>
+                                <div class="alert alert-warning" role="alert">
+                                    You don't have a schedule today.
+                                </div>
 
-                    <!--time 2-->
-                    <div>
-                        <div style="text-align: center;">
-                            <h5 style="color: #EF7F1B;">Date: 02-08-2021</h5> 
-                        </div>
-                        <div class="alert alert-warning" role="alert">
-                            You don't have a schedule today.
-                        </div>
-                        
-                    </div>
+                            </div>
+                        </c:when>
+
+                        <c:otherwise>
+
+                            <div style="margin-bottom: 40px;">
+                                <div style="text-align: center;">
+                                    <c:forEach items="${list_schedule}" var="s" varStatus="status">
+                                        <c:if test="${status.last}"><h5 style="color: #EF7F1B;">Date: ${s.getScheduleDate()}</h5></c:if>
+                                    </c:forEach>
+                                </div>
+                                <div>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">STT</th>
+                                                <th scope="col">Teacher's Name</th>
+                                                <th scope="col">Subject's Code</th>
+                                                <th scope="col">Subject's Name</th>
+                                                <th scope="col">Class's Name</th>
+                                                <th scope="col">Time Slot</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach items="${list_schedule}" var="s" varStatus="status">
+                                                <tr>
+                                                    <th scope="row">${status.count}</th>
+                                                    <td>${s.getTeacherID().getTeacherName()}</td>
+                                                    <td>${s.getSubjectID().getSubjectCode()}</td>
+                                                    <td>${s.getSubjectID().getSubjectName()}</td>
+                                                    <td><a href="attendence.jsp">${s.getClassID().getClassName()}</a></td>
+                                                    <td>${s.getTimeSlotID().getTimeSlotStart()} - ${s.getTimeSlotID().getTimeSlotEnd()}</td>
+                                                </tr>
+                                            </c:forEach>                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
         </div>
