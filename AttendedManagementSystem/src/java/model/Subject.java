@@ -16,7 +16,7 @@ import lombok.ToString;
 public class Subject {
     private int SubjectID;
     private String SubjectCode;
+    private int TotalSlot;
+    private Semester SemesterID;
     private String SubjectName;
-    private Department Department;
-    private Semester Semester;
 }

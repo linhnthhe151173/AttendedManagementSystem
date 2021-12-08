@@ -16,5 +16,4 @@ import lombok.ToString;
 public class Class {
     private int ClassID;
     private String ClassName;
-    private Student Student;
 }

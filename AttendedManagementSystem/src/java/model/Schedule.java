@@ -17,11 +17,9 @@ import lombok.ToString;
 public class Schedule {
 
     private int ScheduleID;
-    private Teacher Teacher;
-    private Subject Subject;
-    private Class ClassS;
-    private Date Date_Schedule;
-    private java.util.Date TimeSlotStart;
-    private java.util.Date TimeSlotEnd;
-
+    private Teacher TeacherID;
+    private Subject SubjectID;
+    private Class ClassID;
+    private Date ScheduleDate;
+    private TimeSlot TimeSlotID;
 }

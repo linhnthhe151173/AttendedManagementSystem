@@ -1,5 +1,6 @@
 package model;
 
+import java.util.Date;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +14,8 @@ import lombok.ToString;
 @Setter
 @ToString
 @Builder
-public class Department {
-    private int DepartmentID;
-    private String DepartmentName;
+class TimeSlot {
+    private int TimeSlotID;
+    private Date TimeSlotStart;
+    private Date TimeSlotEnd;
 }

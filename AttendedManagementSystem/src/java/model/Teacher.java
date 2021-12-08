@@ -1,5 +1,6 @@
 package model;
 
+import java.sql.Date;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,9 +16,11 @@ import lombok.ToString;
 @Builder
 public class Teacher {
     private int TeahcerID;
-    private String TeacherImage;
     private String TeacherName;
-    private String TeacherEmail;
+    private String TeacherImage;
+    private boolean TeacherGender;
     private String TeacherAddress;
+    private String TeacherEmail;
     private String TeacherPhone;
+    private Date TeacherDOB;
 }

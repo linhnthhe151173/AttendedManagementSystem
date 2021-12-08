@@ -1,5 +1,6 @@
 package model;
 
+import java.sql.Date;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +14,9 @@ import lombok.ToString;
 @Setter
 @ToString
 @Builder
-public class Semester {
-    private int SemesterID;
-    private String SemesterName;
+public class ClassMember {
+    private Class ClassID;
+    private Student StudentID;
+    private Date DateStart;
+    private Date DateEnd;
 }
