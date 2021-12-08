@@ -8,6 +8,10 @@
         <servlet-name>ClassDetailController</servlet-name>
         <servlet-class>controller.class_model.ClassDetailController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AttendenceController</servlet-name>
+        <servlet-class>controller.teacher.AttendenceController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeTController</servlet-name>
         <url-pattern>/teacher/today_schedule</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>ClassDetailController</servlet-name>
         <url-pattern>/class_model/class_detail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AttendenceController</servlet-name>
+        <url-pattern>/teacher/attendence</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

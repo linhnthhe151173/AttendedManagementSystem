@@ -96,7 +96,7 @@
                                                     <td>${s.getTeacherID().getTeacherName()}</td>
                                                     <td>${s.getSubjectID().getSubjectCode()}</td>
                                                     <td>${s.getSubjectID().getSubjectName()}</td>
-                                                    <td><a href="attendence.jsp">${s.getClassID().getClassName()}</a></td>
+                                                    <td><a href="attendence?scheduleID=${s.getScheduleID()}&classID=${s.getClassID().getClassID()}">${s.getClassID().getClassName()}</a></td>
                                                     <td>${s.getTimeSlotID().getTimeSlotStart()} - ${s.getTimeSlotID().getTimeSlotEnd()}</td>
                                                 </tr>
                                             </c:forEach>                                            

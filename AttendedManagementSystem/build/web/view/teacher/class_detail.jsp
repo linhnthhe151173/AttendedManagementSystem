@@ -19,7 +19,7 @@
     <body>
         <!-- header -->
         <nav class="navbar navbar-expand-md sticky-top" style="background-color: #EF7F1B;margin-bottom: 20px;">
-            <a class="navbar-brand" href="today_schedule" style="color: white;">Attendence Management</a>
+            <a class="navbar-brand" href="../teacher/other_schedule" style="color: white;">Attendence Management</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -70,7 +70,7 @@
                                 <td>${s.getStudentDOB()}</td>                            
                                 <td>${s.isStudentGender() == "true" ? "Male":"Female"}</td>
                                 <td>${s.getStudentAddress()}</td>
-                                <td>${s.getStudentImage()}</td>
+                                <td>${s.getStudentPhone()}</td>
                             </tr>
                         </c:forEach>                       
                     </tbody>

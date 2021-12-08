@@ -118,7 +118,7 @@
                                                             <th scope="row">${status.count}</th>
                                                             <td>${s.getSubjectID().getSubjectCode()}</td>
                                                             <td>${s.getSubjectID().getSubjectName()}</td>
-                                                            <td><a href="class_detail.jsp">${s.getClassID().getClassName()}</a></td>
+                                                            <td><a href="../class_model/class_detail?ClassID=${s.getClassID().getClassID()}">${s.getClassID().getClassName()}</a></td>
                                                             <td>${s.getTimeSlotID().getTimeSlotStart()} - ${s.getTimeSlotID().getTimeSlotEnd()}</td>
                                                             <td><a href="attendence.jsp">Edit</a></td>
                                                         </tr>
