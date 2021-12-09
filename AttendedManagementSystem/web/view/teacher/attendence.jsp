@@ -42,7 +42,7 @@
                         margin-top: 20px;"><a href="today_schedule" style="color: white;
                      text-decoration: none;">Back</a></button>
             </div>
-            <form action="attendence" method="GET">
+            <form action="attendence" method="POST">
                 <div class="row justify-content-center">
                     <div style="width: 400px;
                          height: 200px;
@@ -90,8 +90,8 @@
                             <td>${s.getStudentEmail()}</td>
                             <td>${s.getStudentID()}</td>
                             <td>${s.getStudentName()}</td>
-                            <td><input type="checkbox" name="attendence" value="1"/><span style="color: green;">Present</span> 
-                                <input type="checkbox" name="attendence" value="0"/><span style="color: red;">Absent</span> </td>
+                            <td><input type="radio" name="attendence${s.getStudentID()}" value="true"/><span style="color: green;">Present</span> 
+                                <input type="radio" name="attendence${s.getStudentID()}" value="false" checked="checked"/><span style="color: red;">Absent</span> </td>
                             </tr>
                         </c:forEach>
                         </tbody>

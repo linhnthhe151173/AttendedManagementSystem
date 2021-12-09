@@ -13,7 +13,7 @@ import model.Student;
  *
  * @author Linh
  */
-public class StudentDBContext extends DBContext{
+public class StudentDBContext extends DBContext {
 
     private PreparedStatement stm;
     private ResultSet rs;
@@ -25,16 +25,16 @@ public class StudentDBContext extends DBContext{
                     + "from ClassMember c inner join Student s\n"
                     + "on c.StudentID = s.StudentID\n"
                     + "where c.ClassID = ?";
-            
+
             stm = connection.prepareStatement(sql);
             stm.setInt(1, ClassID);
             rs = stm.executeQuery();
-            
-            while (rs.next()) {      
-                
+
+            while (rs.next()) {
+
                 Semester se = Semester.builder().SemesterID(rs.getInt(9)).build();
                 se = new SemesterDBContext().getOne(se);
-                
+
                 Student s = Student.builder()
                         .StudentID(rs.getString(1))
                         .StudentName(rs.getString(2))
@@ -46,10 +46,44 @@ public class StudentDBContext extends DBContext{
                         .StudentDOB(rs.getDate(8))
                         .SemesterID(se)
                         .build();
-                
+
                 students.add(s);
             }
             return students;
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public Student getOne(Student student) {
+        try {
+            String sql = "select * from Student\n"
+                    + "where StudentID = ?";
+
+            stm = connection.prepareStatement(sql);
+            stm.setString(1, student.getStudentID());
+            rs = stm.executeQuery();
+
+            while (rs.next()) {
+
+                Semester se = Semester.builder().SemesterID(rs.getInt(9)).build();
+                se = new SemesterDBContext().getOne(se);
+
+                Student s = Student.builder()
+                        .StudentID(rs.getString(1))
+                        .StudentName(rs.getString(2))
+                        .StudentImage(rs.getString(3))
+                        .StudentGender(rs.getBoolean(4))
+                        .StudentAddress(rs.getString(5))
+                        .StudentEmail(rs.getString(6))
+                        .StudentPhone(rs.getString(7))
+                        .StudentDOB(rs.getDate(8))
+                        .SemesterID(se)
+                        .build();
+
+                return s;
+            }
         } catch (SQLException ex) {
             Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
