@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -57,22 +58,85 @@ public class AttendenceDBContext extends DBContext {
     }
 
     public static void main(String[] args) {
-        AttendenceDBContext dao = new AttendenceDBContext();
-        ArrayList<Attendence> list_attendence = new ArrayList<>();
-        Student s = Student.builder()
-                .StudentID("HE1511")
-                .build();
-        Schedule sc = Schedule.builder()
-                .ScheduleID(1).build();
-        long millis = System.currentTimeMillis();
-            Date attendenceDate = new Date(millis);
-        Attendence a = Attendence.builder()
-                .StudentID(s)
-                .ScheduleID(sc)
-                .Present(Boolean.parseBoolean("1"))
-                .AttendenceDate(attendenceDate).build();
-        
-        list_attendence.add(a);
-        dao.insert(list_attendence);
+        Attendence a = new AttendenceDBContext().getAttendenceBySIdAndSchID("HE1511", 11);
+        System.out.println(a);
+    }
+
+    public ArrayList<Attendence> getAttendeds(int scheduleID) {
+        ArrayList<Attendence> attendeds = new ArrayList<>();
+        try {
+            String sql = "select * from Attendence\n"
+                    + "where ScheduleID = ?";
+
+            stm = connection.prepareStatement(sql);
+            stm.setInt(1, scheduleID);
+            rs = stm.executeQuery();
+
+            while (rs.next()) {
+                Student s = Student.builder().StudentID(rs.getString(2)).build();
+                s = new StudentDBContext().getOne(s);
+
+                Schedule sc = new ScheduleDBContext().getScheduleByID(rs.getInt(3));
+
+                Attendence a = Attendence.builder()
+                        .AttendenceID(rs.getInt(1))
+                        .StudentID(s)
+                        .ScheduleID(sc)
+                        .Present(rs.getBoolean(4))
+                        .AttendenceDate(rs.getDate(5)).build();
+
+                attendeds.add(a);
+            }
+            return attendeds;
+        } catch (SQLException ex) {
+            Logger.getLogger(AttendenceDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public Attendence getAttendenceBySIdAndSchID(String studentID, int scheduleID) {
+        try {
+            String sql = "select * from Attendence\n"
+                    + "where StudentID = ? and ScheduleID = ?";
+
+            stm = connection.prepareStatement(sql);
+            stm.setString(1, studentID);
+            stm.setInt(2, scheduleID);
+            rs = stm.executeQuery();
+
+            while (rs.next()) {
+                Student s = Student.builder().StudentID(rs.getString(2)).build();
+                s = new StudentDBContext().getOne(s);
+
+                Schedule sc = new ScheduleDBContext().getScheduleByID(rs.getInt(3));
+
+                Attendence a = Attendence.builder()
+                        .AttendenceID(rs.getInt(1))
+                        .StudentID(s)
+                        .ScheduleID(sc)
+                        .Present(rs.getBoolean(4))
+                        .AttendenceDate(rs.getDate(5)).build();
+
+                return a;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AttendenceDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public void update(Attendence a, boolean attendence) {
+        try {
+            String sql = "UPDATE [dbo].[Attendence]\n"
+                    + "   SET [Present] = ?\n"
+                    + " WHERE AttendenceID = ?";
+            
+            stm = connection.prepareStatement(sql);
+            stm.setBoolean(1, attendence);
+            stm.setInt(2, a.getAttendenceID());
+            stm.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(AttendenceDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

@@ -40,30 +40,33 @@
                 <button type="button" class="btn" style="background-color: #EF7F1B;"><a href="submitted_attendence.jsp" style="color: white;
                                                                                         text-decoration: none;">Back</a></button>
             </div>
-            <div class="row " style="margin-top: 30px;
-             border: 1px solid #EF7F1B;
-             border-radius: 10px;">
-                <div class="col-md-3">
-                    <div >
-                        <img class="card-img-top" src="../../img/avatar.png" alt="Card image cap">
+            <form action="edit" method="POST">
+                <input type="hidden" name="scheduleID" value="${a_edit.getScheduleID().getScheduleID()}" />
+                <div class="row " style="margin-top: 30px;
+                     border: 1px solid #EF7F1B;
+                     border-radius: 10px;">
+                    <div class="col-md-3">
+                        <div >
+                            <img class="card-img-top" src="../img/${a_edit.getStudentID().getStudentImage()}" alt="Card image cap">
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-9">
-                    <div style="padding-top: 50px;">
-                        <h5>Student Code: HE151173</h5>
-                        <h6>Email: abc@fpt</h6>	
-                        <h6>Fullname: Nguyễn Thị Hải Linh</h6>
-                        <h6>Attendence: <input type="radio" name="" value="" /><span style="color: green;">Present</span> |
-                            <input type="radio" name="" value="" /><span style="color: red;">Absent</span></h6>
-                    </div>
-                </div>
-                <div class="col text-center" style="padding-bottom: 20px;">
-                    <button type="button" class="btn" style="background-color: #EF7F1B;
-                            color: white;"><a href="submitted_attendence.jsp" style="color: white;
-                         text-decoration: none;">Submit</a></button>
-                </div>
-            </div>
 
+                    <div class="col-md-9">
+                        <div style="padding-top: 50px;">
+                            <h5>Student Code: <input type="hidden" name="studentID" value="${a_edit.getStudentID().getStudentID()}" />${a_edit.getStudentID().getStudentID()}</h5>
+                            <h6>Email: <br>${a_edit.getStudentID().getStudentEmail()}</h6>	
+                            <h6>Fullname: <br>${a_edit.getStudentID().getStudentName()}</h6>
+                            <h6>Attendence: <br><input type="radio" name="attendence" value="true" ${a_edit.isPresent() == true ? "checked" : ""}/><span style="color: green;">Present</span>
+                                <input type="radio" name="attendence" value="false" ${a_edit.isPresent() == false ? "checked" : ""}/><span style="color: red;">Absent</span></h6>
+                        </div>
+                    </div>
+                    <div class="col text-center" style="padding-bottom: 20px;">
+                        <button type="submit" class="btn" style="background-color: #EF7F1B;
+                                color: white;">Submit</button>
+                    </div>
+
+                </div>
+            </form>
         </div>
     </body>
 </html>

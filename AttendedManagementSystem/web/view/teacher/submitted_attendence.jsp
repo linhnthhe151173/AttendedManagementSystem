@@ -4,6 +4,7 @@
     Author     : Linh
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,7 +19,12 @@
     <body>
         <!-- header -->
         <nav class="navbar navbar-expand-md sticky-top" style="background-color: #EF7F1B;">
-            <a class="navbar-brand" href="#" style="color: white;">Attendence Management</a>
+            <c:forEach items="${list_attendence}" var="a" varStatus="status">
+                <c:if test="${status.last}">
+                    <a class="navbar-brand" href="today_schedule" style="color: white;">Attendence Management</a>
+
+                </c:if>
+            </c:forEach>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -37,9 +43,14 @@
 
         <div class="container">
             <div style="padding-top: 20px;">
-                <h6>Present: <span style="color: green;">4</span></h6>
-                <h6>Absent: <span style="color: red;">3</span></h6>
-                <h5>Detail</h5>
+                <h5>Detail: </h5>
+                <c:forEach items="${list_attendence}" var="a" varStatus="status">
+                    <c:if test="${status.last}">
+                        <span>[<span style="font-weight: bold;">Class:</span> ${a.getScheduleID().getClassID().getClassName()}, <span style="font-weight: bold;">Subject's Code:</span> ${a.getScheduleID().getSubjectID().getSubjectCode()}, <span style="font-weight: bold;">Attended Date:</span> ${a.getAttendenceDate()}]</span>
+
+                    </c:if>
+                </c:forEach>
+
             </div>
             <hr>
             <div style="margin-top: 20px;">
@@ -56,62 +67,39 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td><img src="../../img/avatar.png" style="width: 100px;height: 100px;"></td>
-                            <td>LinhNTHHE151173@fpt.edu.vn</td>
-                            <td>HE151173</td>
-                            <td>Nguyễn Thị Hải Linh</td>
-                            <td style="color: green;">Present</td>
-                            <td><a href="edit.jsp">Edit</a></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td><img src="../../img/avatar.png" style="width: 100px;height: 100px;"></td>
-                            <td>LinhNTHHE151173@fpt.edu.vn</td>
-                            <td>HE151173</td>
-                            <td>Nguyễn Thị Hải Linh</td>
-                            <td style="color: red;">Absent</td>
-                            <td><a href="edit.jsp">Edit</a></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td><img src="../../img/avatar.png" style="width: 100px;height: 100px;"></td>
-                            <td>LinhNTHHE151173@fpt.edu.vn</td>
-                            <td>HE151173</td>
-                            <td>Nguyễn Thị Hải Linh</td>
-                            <td style="color: green;">Present</td>
-                            <td><a href="edit.jsp">Edit</a></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td><img src="../../img/avatar.png" style="width: 100px;height: 100px;"></td>
-                            <td>LinhNTHHE151173@fpt.edu.vn</td>
-                            <td>HE151173</td>
-                            <td>Nguyễn Thị Hải Linh</td>
-                            <td style="color: green;">Present</td>
-                            <td><a href="edit.jsp">Edit</a></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">5</th>
-                            <td><img src="../../img/avatar.png" style="width: 100px;height: 100px;"></td>
-                            <td>LinhNTHHE151173@fpt.edu.vn</td>
-                            <td>HE151173</td>
-                            <td>Nguyễn Thị Hải Linh</td>
-                            <td style="color: red;">Absent</td>
-                            <td><a href="edit.jsp">Edit</a></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">6</th>
-                            <td><img src="../../img/avatar.png" style="width: 100px;height: 100px;"></td>
-                            <td>LinhNTHHE151173@fpt.edu.vn</td>
-                            <td>HE151173</td>
-                            <td>Nguyễn Thị Hải Linh</td>
-                            <td style="color: red;">Absent</td>
-                            <td><a href="edit.jsp">Edit</a></td>
-                        </tr>
+                        <c:forEach items="${list_attendence}" var="a" varStatus="status">
+                            <tr>
+                                <th scope="row">${status.count}</th>
+                                <td><img src="../img/${a.getStudentID().getStudentImage()}" style="width: 100px;height: 100px;"></td>
+                                <td>${a.getStudentID().getStudentEmail()}</td>
+                                <td>${a.getStudentID().getStudentID()}</td>
+                                <td>${a.getStudentID().getStudentName()}</td>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${a.isPresent() == true}">
+                                            <span style="color: green;">Present</span>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <span style="color: red;">Absent</span>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </td>
+                                <td><a href="edit?studentID=${a.getStudentID().getStudentID()}&scheduleID=${a.getScheduleID().getScheduleID()}">Edit</a></td>
+                            </tr>
+                        </c:forEach>                        
                     </tbody>
                 </table>
+            </div>
+            <div class="col-md-12" style="text-align: center;">
+                <c:forEach items="${list_attendence}" var="a" varStatus="status">
+                    <c:if test="${status.last}">
+                        <button type="button" class="btn" style="background-color: #EF7F1B;
+                                margin-top: 15px;"><a href="today_schedule?scheduleID=${a.getScheduleID().getScheduleID()}" style="color: white;
+                             text-decoration: none;">Check</a></button>
+                        </c:if>
+
+                </c:forEach>
+
             </div>
         </div>
 

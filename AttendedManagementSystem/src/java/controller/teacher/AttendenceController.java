@@ -63,6 +63,7 @@ public class AttendenceController extends HttpServlet {
             list_attendence.add(at);
         }
         dbAt.insert(list_attendence);
+        
         request.setAttribute("list_attendence", list_attendence);
         request.getRequestDispatcher("../view/teacher/submitted_attendence.jsp").forward(request, response);
     }

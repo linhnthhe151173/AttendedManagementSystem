@@ -82,10 +82,10 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">STT</th>
-                                                <th scope="col">Teacher's Name</th>
-                                                <th scope="col">Subject's Code</th>
-                                                <th scope="col">Subject's Name</th>
-                                                <th scope="col">Class's Name</th>
+                                                <th scope="col">Teacher</th>
+                                                <th scope="col">Subject</th>
+                                                <th scope="col">S_Name</th>
+                                                <th scope="col">C_Name</th>
                                                 <th scope="col">Time Slot</th>
                                             </tr>
                                         </thead>
