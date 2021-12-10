@@ -109,4 +109,16 @@ public class ClassDBContext extends DBContext {
             Logger.getLogger(SubjectDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public void removeClassByID(int classID) {
+        try {
+            String sql = "DELETE FROM [dbo].[Class]\n"
+                    + "      WHERE ClassID = ?";
+            stm = connection.prepareStatement(sql);
+            stm.setInt(1, classID);
+            stm.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SubjectDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

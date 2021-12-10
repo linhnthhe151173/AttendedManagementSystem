@@ -67,7 +67,7 @@
                             <th scope="row"><%=i+1%></th>
                             <td><%=list_class.get(i).getClassName()%></td>
                             <td><a href="class/edit?classID=<%=list_class.get(i).getClassID()%>">Edit</a></td>
-                            <td><a href="">Remove</a></td>
+                            <td><a href="class/remove?classID=<%=list_class.get(i).getClassID()%>">Remove</a></td>
                         </tr>
                         <%
                             }
