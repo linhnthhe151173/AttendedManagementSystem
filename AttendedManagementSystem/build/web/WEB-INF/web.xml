@@ -52,6 +52,14 @@
         <servlet-name>StudentDetailController</servlet-name>
         <servlet-class>controller.student.StudentDetailController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddTeacherController</servlet-name>
+        <servlet-class>controller.teacher.AddController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TeacherDetailController</servlet-name>
+        <servlet-class>controller.teacher.TeacherDetailController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeTController</servlet-name>
         <url-pattern>/teacher/today_schedule</url-pattern>
@@ -103,6 +111,14 @@
     <servlet-mapping>
         <servlet-name>StudentDetailController</servlet-name>
         <url-pattern>/student/student_detail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddTeacherController</servlet-name>
+        <url-pattern>/teacher/add</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TeacherDetailController</servlet-name>
+        <url-pattern>/teacher/teacher_detail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

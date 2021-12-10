@@ -1,6 +1,6 @@
 <%-- 
-    Document   : home_admin
-    Created on : Dec 7, 2021, 4:05:09 PM
+    Document   : add_teacher
+    Created on : Dec 10, 2021, 3:43:24 PM
     Author     : Linh
 --%>
 
@@ -13,7 +13,7 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <title>home_admin</title>
+        <title>add_teacher</title>
     </head>
     <body>
         <!-- header -->
@@ -115,16 +115,16 @@
                          text-align: center;" class="col-md-2">
                         <table class="table table-bordered table-hover">
                             <tr>
-                                <td><a href="subject/add" style="color: black;">Subject</a></td>
+                                <td><a href="add" style="color: black;">Subject</a></td>
                             </tr>
                             <tr>
-                                <td><a href="class/add" style="color: black;">Class</a></td>
+                                <td><a href="../class/add" style="color: black;">Class</a></td>
                             </tr>
                             <tr>
-                                <td><a href="student/add" style="color: black;">Student</a></td>
+                                <td><a href="teacher.jsp" style="color: black;">Student</a></td>
                             </tr>
                             <tr>
-                                <td><a href="teacher/add" style="color: black;">Teacher</a></td>
+                                <td><a href="assign_subject.jsp" style="color: black;">Teacher</a></td>
                             </tr>
                             <tr>
                                 <td><a href="student.jsp" style="color: black;">Schedule</a></td>
@@ -134,8 +134,44 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="col-md-10" style="border: 1px solid #EF7F1B;">
-                        
+                    <div class="col-md-10 " style="border: 1px solid #EF7F1B;">
+                        <h5 style="color: #EF7F1B;
+                            margin-top: 15px;">ADD NEW TEACHER</h5>
+                        <form action="add" method="POST">
+                            <table style="margin-top: 20px;">
+                                <tr>
+                                    <td>Teacher Name: </td>
+                                    <td><input type="text" name="teacher_name" value="" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Image: </td>
+                                    <td><input type="file" name="teacher_image" value="" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Teacher Gender: </td>
+                                    <td><input type="radio" name="teacher_gender" value="true" />Male
+                                    <input type="radio" name="teacher_gender" value="false" />Female</td>
+                                </tr>
+                                <tr>
+                                    <td>Teacher Address: </td>
+                                    <td><textarea type="text" name="teacher_adress" value="" /></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td>Teacher Email: </td>
+                                    <td><input type="text" name="teacher_email" value="" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Teacher Phone: </td>
+                                    <td><input type="text" name="teacher_phone" value="" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Date of birth: </td>
+                                    <td><input type="date" name="teacher_dob" value="" /></td>
+                                </tr>
+                            </table>
+                            <button type="submmit" class="btn" style="background-color: #EF7F1B;
+                                    margin-top: 15px;">Save</button>
+                        </form>
                     </div>
                 </div>
 
