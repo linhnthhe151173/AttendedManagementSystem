@@ -12,6 +12,18 @@
         <servlet-name>AttendenceController</servlet-name>
         <servlet-class>controller.teacher.AttendenceController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>controller.authentication.LoginController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutController</servlet-name>
+        <servlet-class>controller.authentication.LogoutController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HomeController</servlet-name>
+        <servlet-class>controller.admin.HomeController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeTController</servlet-name>
         <url-pattern>/teacher/today_schedule</url-pattern>
@@ -23,6 +35,18 @@
     <servlet-mapping>
         <servlet-name>AttendenceController</servlet-name>
         <url-pattern>/teacher/attendence</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutController</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/home</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

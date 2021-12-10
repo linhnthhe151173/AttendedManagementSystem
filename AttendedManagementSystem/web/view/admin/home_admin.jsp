@@ -47,10 +47,10 @@
                                 <div class="card-body-icon">
                                     <i class="fa fa-fw fa-comments"></i>
                                 </div>
-                                <div class="mr-5">Total Course</div>
+                                <div class="mr-5">Total Subject</div>
                             </div>
-                            <a class="card-footer text-white clearfix small z-1" href="product_manage">
-                                <span class="float-left">20 Courses</span>
+                            <a class="card-footer text-white clearfix small z-1" href="subject.jsp">
+                                <span class="float-left">${total_subject} Subject</span>
                                 <span class="float-right">
                                     <i class="fa fa-angle-right"></i>
                                 </span>
@@ -63,10 +63,10 @@
                                 <div class="card-body-icon">
                                     <i class="fa fa-fw fa-list"></i>
                                 </div>
-                                <div class="mr-5">Total Subject</div>
+                                <div class="mr-5">Total Class</div>
                             </div>
-                            <a class="card-footer text-white clearfix small z-1" href="customer_manage">
-                                <span class="float-left">30 Subjects</span>
+                            <a class="card-footer text-white clearfix small z-1" href="class.jsp">
+                                <span class="float-left">${total_class} Class</span>
                                 <span class="float-right">
                                     <i class="fa fa-angle-right"></i>
                                 </span>
@@ -79,10 +79,10 @@
                                 <div class="card-body-icon">
                                     <i class="fa fa-fw fa-shopping-cart"></i>
                                 </div>
-                                <div class="mr-5">Total Teacher</div>
+                                <div class="mr-5">Total Account</div>
                             </div>
-                            <a class="card-footer text-white clearfix small z-1" href="brand_manage">
-                                <span class="float-left">30 Teachers</span>
+                            <a class="card-footer text-white clearfix small z-1" href="account.jsp">
+                                <span class="float-left">${total_account} Account</span>
                                 <span class="float-right">
                                     <i class="fa fa-angle-right"></i>
                                 </span>
@@ -95,10 +95,10 @@
                                 <div class="card-body-icon">
                                     <i class="fa fa-fw fa-support"></i>
                                 </div>
-                                <div class="mr-5">Total Student</div>
+                                <div class="mr-5">Total Schedule</div>
                             </div>
-                            <a class="card-footer text-white clearfix small z-1" href="bill_manage_2">
-                                <span class="float-left">100 Students</span>
+                            <a class="card-footer text-white clearfix small z-1" href="schedule.jsp">
+                                <span class="float-left">${total_schedule} Schedule</span>
                                 <span class="float-right">
                                     <i class="fa fa-angle-right"></i>
                                 </span>
@@ -109,19 +109,36 @@
                 <!-- Area Chart Example-->
                 <hr>
                 <h5 style="color: #EF7F1B;
-                        margin-bottom: 20px;">Detail</h5>
-                <div style="margin-top: 20px;
-                 text-align: center;">
-                <table class="table table-bordered">
-                    <tr>
-                        <td><a href="course.jsp" style="color: black;">Course</a></td>
-                        <td><a href="subject.jsp" style="color: black;">Subject</a></td>
-                        <td><a href="teacher.jsp" style="color: black;">Teacher</a></td>
-                        <td><a href="assign_subject.jsp" style="color: black;">Assign Subject</a></td>
-                        <td><a href="student.jsp" style="color: black;">Student</a></td>
-                    </tr>
-                </table>
-            </div>
+                    margin-bottom: 20px;">Detail</h5>
+                <div class="row">
+                    <div style="margin-top: 20px;
+                         text-align: center;" class="col-md-2">
+                        <table class="table table-bordered table-hover">
+                            <tr>
+                                <td><a href="course.jsp" style="color: black;">Subject</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="subject.jsp" style="color: black;">Class</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="teacher.jsp" style="color: black;">Student</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="assign_subject.jsp" style="color: black;">Teacher</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="student.jsp" style="color: black;">Schedule</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="student.jsp" style="color: black;">Attendence Report</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-10" style="border: 1px solid #EF7F1B;">
+                        
+                    </div>
+                </div>
+
             </div>
         </div>
     </body>

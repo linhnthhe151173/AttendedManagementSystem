@@ -28,13 +28,29 @@ public class ClassDBContext extends DBContext {
             while (rs.next()) {
                 Class cl = Class.builder().ClassID(rs.getInt(1))
                         .ClassName(rs.getString(2)).build();
-                
+
                 return cl;
             }
         } catch (SQLException ex) {
             Logger.getLogger(TeacherDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+    public int countClass() {
+        int total_class = 0;
+        try {
+            String sql = "select count(*)\n"
+                    + "from Class";
+            stm = connection.prepareStatement(sql);
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                total_class = rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SubjectDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return total_class;
     }
 
 }

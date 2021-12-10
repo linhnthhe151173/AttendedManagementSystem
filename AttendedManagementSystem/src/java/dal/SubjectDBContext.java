@@ -26,10 +26,10 @@ public class SubjectDBContext extends DBContext {
             rs = stm.executeQuery();
 
             while (rs.next()) {
-                
+
                 Semester se = Semester.builder().SemesterID(rs.getInt(4)).build();
                 se = new SemesterDBContext().getOne(se);
-                
+
                 Subject s = Subject.builder().SubjectID(rs.getInt(1))
                         .SubjectCode(rs.getString(2))
                         .TotalSlot(rs.getInt(3))
@@ -42,6 +42,22 @@ public class SubjectDBContext extends DBContext {
             Logger.getLogger(SubjectDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+    public int countSubject() {
+        int total_subject = 0;
+        try {
+            String sql = "select count(*)\n"
+                    + "from Subject";
+            stm = connection.prepareStatement(sql);
+            rs = stm.executeQuery();
+            while (rs.next()) {                
+                total_subject = rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SubjectDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return total_subject;
     }
 
 }

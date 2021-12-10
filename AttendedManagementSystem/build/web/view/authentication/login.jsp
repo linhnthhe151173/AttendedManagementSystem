@@ -13,7 +13,7 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="../css/login_style.css">
+        <link rel="stylesheet" href="css/login_style.css">
         <title>login</title>
     </head>
     <body>
@@ -26,32 +26,30 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="../img/login.jpg" class="img-fluid" alt="Responsive image" style="margin-top: 50px;">
+                    <img src="img/login.jpg" class="img-fluid" alt="Responsive image" style="margin-top: 50px;">
                 </div>
                 <div class="col-md-6"">
                     <form action="#" method="post">
                         <div class="imgcontainer">
-                            <img src="../img/avatar.png" alt="Avatar" class="avatar" style="width: 100px;height: 100px;">
+                            <img src="img/avatar.png" alt="Avatar" class="avatar" style="width: 100px;height: 100px;">
                         </div>
+                        <form action="login" method="POST">
+                            <div class="container">
+                                <label for="uname"><b>Username</b></label>
+                                <input type="text" placeholder="Enter Username" name="username" required>
 
-                        <div class="container">
-                            <label for="uname"><b>Username</b></label>
-                            <input type="text" placeholder="Enter Username" name="uname" required>
+                                <label for="psw"><b>Password</b></label>
+                                <input type="password" placeholder="Enter Password" name="password" required>
 
-                            <label for="psw"><b>Password</b></label>
-                            <input type="password" placeholder="Enter Password" name="psw" required>
-
-                            <button type="submit">Login</button>
-                            <label>
-                                <input type="checkbox" checked="checked" name="remember"> Remember me
-                            </label>
-                        </div>
+                                <button type="submit">Login</button>
+                                <label>
+                                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                                </label>
+                            </div>
+                        </form>
 
                         <div class="container" style="background-color:#f1f1f1;display: flex;">
                             <div>
-                                <span class="psw">New registration?  <a href="#">Click here</a></span>
-                            </div>
-                            <div style="margin-left: 30px;">
                                 <span class="psw">Forgot <a href="#">password?</a></span>
                             </div>
                         </div>
