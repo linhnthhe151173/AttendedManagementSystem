@@ -67,11 +67,11 @@ public class SubjectDBContext extends DBContext {
             String sql = "select * from Subject";
             stm = connection.prepareStatement(sql);
             rs = stm.executeQuery();
-            while (rs.next()) {  
+            while (rs.next()) {
                 Semester se = Semester.builder()
                         .SemesterID(rs.getInt(4)).build();
                 se = new SemesterDBContext().getOne(se);
-                
+
                 Subject s = Subject.builder()
                         .SubjectID(rs.getInt(1))
                         .SubjectCode(rs.getString(2))
@@ -79,7 +79,7 @@ public class SubjectDBContext extends DBContext {
                         .SemesterID(se)
                         .SubjectName(rs.getString(5))
                         .build();
-                
+
                 list.add(s);
             }
             return list;
@@ -87,6 +87,26 @@ public class SubjectDBContext extends DBContext {
             Logger.getLogger(SubjectDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+    public void insert(Subject s) {
+        try {
+            String sql = "INSERT INTO [dbo].[Subject]\n"
+                    + "           ([SubjectCode]\n"
+                    + "           ,[TotalSlot]\n"
+                    + "           ,[SemesterID]\n"
+                    + "           ,[SubjectName])\n"
+                    + "     VALUES\n"
+                    + "           (?, ?, ?, ?)";
+            stm = connection.prepareStatement(sql);
+            stm.setString(1, s.getSubjectCode());
+            stm.setInt(2, s.getTotalSlot());
+            stm.setInt(3, s.getSemesterID().getSemesterID());
+            stm.setString(4, s.getSubjectName());
+            stm.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SubjectDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

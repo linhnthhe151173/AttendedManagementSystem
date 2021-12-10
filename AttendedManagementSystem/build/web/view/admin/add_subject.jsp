@@ -1,9 +1,10 @@
 <%-- 
-    Document   : home_admin
-    Created on : Dec 7, 2021, 4:05:09 PM
+    Document   : add_subject
+    Created on : Dec 10, 2021, 1:14:33 PM
     Author     : Linh
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,7 +14,7 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <title>home_admin</title>
+        <title>add_subject</title>
     </head>
     <body>
         <!-- header -->
@@ -33,7 +34,6 @@
                 </ul>
             </div>
         </nav>
-
         <div class="content-wrapper" style="margin-top: 20px;">
             <div class="container">
                 <div>
@@ -134,8 +134,36 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="col-md-10" style="border: 1px solid #EF7F1B;">
-                        
+                    <div class="col-md-10 " style="border: 1px solid #EF7F1B;">
+                        <h5 style="color: #EF7F1B;
+                            margin-top: 15px;">ADD NEW SUBJECT</h5>
+                        <form action="add" method="POST">
+                            <table style="margin-top: 20px;">
+                                <tr>
+                                    <td>Subject Code: </td>
+                                    <td><input type="text" name="subject_code" value="" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Subject Name: </td>
+                                    <td><input type="text" name="subject_name" value="" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Total Slot: </td>
+                                    <td><input type="text" name="total_slot" value="" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Semester: </td>
+                                    <td><select name="semester">
+                                            <c:forEach items="${list_semester}" var="s">
+                                                <option value="${s.getSemesterID()}">${s.getSemesterName()}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                            <button type="submmit" class="btn" style="background-color: #EF7F1B;
+                                    margin-top: 15px;">Save</button>
+                        </form>
                     </div>
                 </div>
 

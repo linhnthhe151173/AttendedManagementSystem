@@ -47,6 +47,7 @@
                 <input type="submit" style="background-color: #EF7F1B;
                        border: none;" value="Search">
             </div>
+            <p>${mess}</p>
             <h4 style="text-align: center;
                 margin-top: 20px;
                 font-weight: bold;

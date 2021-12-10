@@ -40,6 +40,10 @@
         <servlet-name>ScheduleController</servlet-name>
         <servlet-class>controller.admin.ScheduleController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddController</servlet-name>
+        <servlet-class>controller.subject.AddController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeTController</servlet-name>
         <url-pattern>/teacher/today_schedule</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>ScheduleController</servlet-name>
         <url-pattern>/schedule_detail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddController</servlet-name>
+        <url-pattern>/subject/add</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
