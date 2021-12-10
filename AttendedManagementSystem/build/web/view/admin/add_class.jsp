@@ -1,6 +1,6 @@
 <%-- 
-    Document   : home_admin
-    Created on : Dec 7, 2021, 4:05:09 PM
+    Document   : add_class
+    Created on : Dec 10, 2021, 2:16:14 PM
     Author     : Linh
 --%>
 
@@ -13,7 +13,7 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <title>home_admin</title>
+        <title>add_class</title>
     </head>
     <body>
         <!-- header -->
@@ -135,7 +135,18 @@
                         </table>
                     </div>
                     <div class="col-md-10" style="border: 1px solid #EF7F1B;">
-                        
+                        <h5 style="color: #EF7F1B;
+                            margin-top: 15px;">ADD NEW CLASS</h5>
+                        <form action="add" method="POST">
+                            <table style="margin-top: 20px;">
+                                <tr>
+                                    <td>Class name: </td>
+                                    <td><input type="text" name="class_name" value="" /></td>
+                                </tr>
+                            </table>
+                            <button type="submmit" class="btn" style="background-color: #EF7F1B;
+                                    margin-top: 15px;">Save</button>
+                        </form>
                     </div>
                 </div>
 

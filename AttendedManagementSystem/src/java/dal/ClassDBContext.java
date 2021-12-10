@@ -60,12 +60,12 @@ public class ClassDBContext extends DBContext {
             String sql = "select * from Class";
             stm = connection.prepareStatement(sql);
             rs = stm.executeQuery();
-            while (rs.next()) {  
+            while (rs.next()) {
                 Class c = Class.builder()
                         .ClassID(rs.getInt(1))
                         .ClassName(rs.getString(2))
                         .build();
-                
+
                 list.add(c);
             }
             return list;
@@ -80,6 +80,19 @@ public class ClassDBContext extends DBContext {
         list = new ClassDBContext().getAll();
         for (Class class1 : list) {
             System.out.println(class1);
+        }
+    }
+
+    public void inert(Class c) {
+        try {
+            String sql = "INSERT INTO [dbo].[Class]\n"
+                    + "           ([ClassName])\n"
+                    + "     VALUES (?)";
+            stm = connection.prepareStatement(sql);
+            stm.setString(1, c.getClassName());
+            stm.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SubjectDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
