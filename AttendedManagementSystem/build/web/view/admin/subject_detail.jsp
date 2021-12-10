@@ -75,7 +75,7 @@
                                 <td>${s.getTotalSlot()}</td>
                                 <td>${s.getSemesterID().getSemesterName()}</td>
                                 <td><a href="subject/edit?subjectID=${s.getSubjectID()}">Edit</a></td>
-                                <td><a href="">Remove</a></td>
+                                <td><a href="subject/remove?subjectID=${s.getSubjectID()}">Remove</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>

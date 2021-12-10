@@ -129,4 +129,16 @@ public class SubjectDBContext extends DBContext {
         }
     }
 
+    public void removeSubjectByID(int subjectID) {
+        try {
+            String sql = "DELETE FROM [dbo].[Subject]\n"
+                    + "      WHERE SubjectID = ?";
+            stm = connection.prepareStatement(sql);
+            stm.setInt(1, subjectID);
+            stm.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SubjectDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }
