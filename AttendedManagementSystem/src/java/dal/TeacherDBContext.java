@@ -96,4 +96,30 @@ public class TeacherDBContext extends DBContext {
         }
     }
 
+    public void update(Teacher t) {
+        try {
+            String sql = "UPDATE [dbo].[Teacher]\n"
+                    + "   SET [TeacherName] = ?\n"
+                    + "      ,[TeacherImage] = ?\n"
+                    + "      ,[TeacherGender] = ?\n"
+                    + "      ,[TeacherAddress] = ?\n"
+                    + "      ,[TeacherEmail] = ?\n"
+                    + "      ,[TeacherPhone] = ?\n"
+                    + "      ,[TeacherDOB] = ?\n"
+                    + " WHERE TeacherID = ?";
+            stm = connection.prepareStatement(sql);
+            stm.setString(1, t.getTeacherName());
+            stm.setString(2, t.getTeacherImage());
+            stm.setBoolean(3, t.isTeacherGender());
+            stm.setString(4, t.getTeacherAddress());
+            stm.setString(5, t.getTeacherEmail());
+            stm.setString(6, t.getTeacherPhone());
+            stm.setDate(7, t.getTeacherDOB());
+            stm.setInt(8, t.getTeacherID());
+            stm.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(TeacherDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }

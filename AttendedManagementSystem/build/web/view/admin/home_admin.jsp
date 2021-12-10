@@ -114,7 +114,7 @@
                                 </div>
                                 <div class="mr-5">Total Teacher</div>
                             </div>
-                            <a class="card-footer text-white clearfix small z-1" href="subject_detail">
+                            <a class="card-footer text-white clearfix small z-1" href="teacher/teacher_detail">
                                 <span class="float-left">${total_subject} Teacher</span>
                                 <span class="float-right">
                                     <i class="fa fa-angle-right"></i>
@@ -130,7 +130,7 @@
                                 </div>
                                 <div class="mr-5">Total Student</div>
                             </div>
-                            <a class="card-footer text-white clearfix small z-1" href="class_detail">
+                            <a class="card-footer text-white clearfix small z-1" href="student/student_detail">
                                 <span class="float-left">${total_class} Student</span>
                                 <span class="float-right">
                                     <i class="fa fa-angle-right"></i>

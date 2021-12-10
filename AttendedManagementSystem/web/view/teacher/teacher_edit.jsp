@@ -38,10 +38,35 @@
             <h4 style="color: #EF7F1B;text-align: center;padding-bottom: 10px;">EDIT SUBJECT</h4>
             <form action="edit" method="POST">
                 <table class="table table-bordered">
-                    <input type="hidden" name="classID" value="${c.getClassID()}" />
+                    <input type="hidden" name="teacherID" value="${t.getTeacherID()}" />
                     <tr>
-                        <td>Class Name: </td>
-                        <td><input type="text" name="class_name" value="${c.getClassName()}" /></td>
+                        <td>Teacher Name: </td>
+                        <td><input type="text" name="name" value="${t.getTeacherName()}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Image: </td>
+                        <td><input type="file" name="image" value="${t.getTeacherImage()}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Teacher Gender: </td>
+                        <td><input type="radio" name="gender"${t.isTeacherGender() == true? "checked":""} value="${t.isTeacherGender()}" />Male
+                        <input type="radio" name="gender" value="${t.isTeacherGender()}" ${t.isTeacherGender() == false? "checked":""}/>Female</td>
+                    </tr>
+                    <tr>
+                        <td>Teacher Address: </td>
+                        <td><input type="text" name="address" value="${t.getTeacherAddress()}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Teacher Email: </td>
+                        <td><input type="text" name="email" value="${t.getTeacherEmail()}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Teacher Phone: </td>
+                        <td><input type="text" name="phone" value="${t.getTeacherPhone()}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Date of birth: </td>
+                        <td><input type="date" name="date" value="${t.getTeacherDOB()}" /></td>
                     </tr>
                 </table>
                 <button type="submmit" class="btn" style="background-color: #EF7F1B;

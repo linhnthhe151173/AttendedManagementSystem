@@ -76,12 +76,12 @@
                         <td><%=i + 1%></td>
                         <td><%=list.get(i).getTeacherName() %></td>
                         <td><img src="../img/<%=list.get(i).getTeacherImage()%>" style="width: 100px;height: 100px;"></td>
-                        <td><%=list.get(i).isTeacherGender()?"Male":"False" %></td>
+                        <td><%=list.get(i).isTeacherGender()?"Male":"Female" %></td>
                         <td><%=list.get(i).getTeacherAddress()%></td>
                         <td><%=list.get(i).getTeacherEmail()%></td>
                         <td><%=list.get(i).getTeacherPhone()%></td>
                         <td><%=list.get(i).getTeacherDOB()%></td>
-                        <td><a href="">Edit</a></td>
+                        <td><a href="../edit?teacherID=<%=list.get(i).getTeacherID()%>">Edit</a></td>
                         <td><a href="">Remove</a></td>
                     </tr>
                     <%
