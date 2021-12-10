@@ -1,19 +1,21 @@
-package controller.subject;
+package controller.student;
 
 import dal.AccountDBContext;
 import dal.ClassDBContext;
 import dal.ScheduleDBContext;
 import dal.SemesterDBContext;
+import dal.StudentDBContext;
 import dal.SubjectDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Semester;
-import model.Subject;
+import model.Student;
 
 /**
  *
@@ -39,32 +41,43 @@ public class AddController extends HttpServlet {
         request.setAttribute("total_account", total_account);
         request.setAttribute("total_schedule", total_schedule);
         request.setAttribute("list_semester", list_semester);
-        request.getRequestDispatcher("../view/admin/add_subject.jsp").forward(request, response);
+        request.getRequestDispatcher("../view/admin/add_student.jsp").forward(request, response);
     }
 
+   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String subject_code = request.getParameter("subject_code");
-        String subject_name = request.getParameter("subject_name");
-        int total_slot = Integer.parseInt(request.getParameter("total_slot"));
-        int semester = Integer.parseInt(request.getParameter("semester"));
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        String student_code = request.getParameter("student_code");
+        String student_name = request.getParameter("student_name");
+        String student_image = request.getParameter("student_image");
+        boolean student_gender = Boolean.parseBoolean(request.getParameter("student_gender"));
+        String student_address = request.getParameter("student_address");
+        String student_email = request.getParameter("student_email");
+        String student_phone = request.getParameter("student_phone");
+        Date student_dob = Date.valueOf(request.getParameter("student_dob"));
+        int student_semester = Integer.parseInt(request.getParameter("student_semester"));
         
         Semester se = Semester.builder()
-                .SemesterID(semester).build();
+                .SemesterID(student_semester).build();
         se = new SemesterDBContext().getOne(se);
         
-        Subject s = Subject.builder()
-                .SubjectCode(subject_code)
-                .SubjectName(subject_name)
-                .TotalSlot(total_slot)
-                .SemesterID(se)
-                .build();
+        Student s = Student.builder()
+                .StudentID(student_code)
+                .StudentName(student_name)
+                .StudentImage(student_image)
+                .StudentGender(student_gender)
+                .StudentAddress(student_address)
+                .StudentEmail(student_email)
+                .StudentPhone(student_phone)
+                .StudentDOB(student_dob)
+                .SemesterID(se).build();
         
-        SubjectDBContext dbSu = new SubjectDBContext();
-        //int subject_id = 
-        dbSu.insert(s);
-        response.sendRedirect("../subject_detail");
+        StudentDBContext dbStu = new StudentDBContext();
+        dbStu.insert(s);
+        response.sendRedirect("student_detail");
     }
 
     @Override

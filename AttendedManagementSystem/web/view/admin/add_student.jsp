@@ -1,9 +1,10 @@
 <%-- 
-    Document   : add_class
-    Created on : Dec 10, 2021, 2:16:14 PM
+    Document   : add_student
+    Created on : Dec 10, 2021, 2:32:32 PM
     Author     : Linh
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,7 +14,7 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <title>add_class</title>
+        <title>add_student</title>
     </head>
     <body>
         <!-- header -->
@@ -136,12 +137,49 @@
                     </div>
                     <div class="col-md-10" style="border: 1px solid #EF7F1B;">
                         <h5 style="color: #EF7F1B;
-                            margin-top: 15px;">ADD NEW CLASS</h5>
+                            margin-top: 15px;">ADD NEW STUDENT</h5>
                         <form action="add" method="POST">
                             <table style="margin-top: 20px;">
                                 <tr>
-                                    <td>Class name: </td>
-                                    <td><input type="text" name="class_name" value="" /></td>
+                                    <td>Student Code: </td>
+                                    <td><input type="text" name="student_code" value="" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Student Name: </td>
+                                    <td><input type="text" name="student_name" value="" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Image: </td>
+                                    <td><input type="file" name="student_image" value="" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Student Gender: </td>
+                                    <td><input type="radio" name="student_gender" value="true" />Male
+                                        <input type="radio" name="student_gender" value="false" />Female</td>
+                                </tr>
+                                <tr>
+                                    <td>Student Address: </td>
+                                    <td><textarea type="text" name="student_address" value="" /></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td>Student Email: </td>
+                                    <td><input type="text" name="student_email" value="" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Student Phone: </td>
+                                    <td><input type="text" name="student_phone" value="" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Student DOB: </td>
+                                    <td><input type="date" name="student_dob" value="" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Semester: </td>
+                                    <td><select name="student_semester">
+                                            <c:forEach items="${list_semester}" var="s">
+                                                <option value="${s.getSemesterID()}">${s.getSemesterName()}</option>
+                                            </c:forEach>
+                                        </select></td>
                                 </tr>
                             </table>
                             <button type="submmit" class="btn" style="background-color: #EF7F1B;

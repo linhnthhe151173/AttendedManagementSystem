@@ -115,7 +115,7 @@
                          text-align: center;" class="col-md-2">
                         <table class="table table-bordered table-hover">
                             <tr>
-                                <td><a href="subject/add" style="color: black;">Subject</a></td>
+                                <td><a href="../subject/add" style="color: black;">Subject</a></td>
                             </tr>
                             <tr>
                                 <td><a href="class/add" style="color: black;">Class</a></td>

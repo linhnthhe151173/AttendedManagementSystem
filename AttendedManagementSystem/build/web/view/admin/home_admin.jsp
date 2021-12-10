@@ -121,7 +121,7 @@
                                 <td><a href="class/add" style="color: black;">Class</a></td>
                             </tr>
                             <tr>
-                                <td><a href="teacher.jsp" style="color: black;">Student</a></td>
+                                <td><a href="student/add" style="color: black;">Student</a></td>
                             </tr>
                             <tr>
                                 <td><a href="assign_subject.jsp" style="color: black;">Teacher</a></td>

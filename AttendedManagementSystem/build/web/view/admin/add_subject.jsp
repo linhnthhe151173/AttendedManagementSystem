@@ -115,10 +115,10 @@
                          text-align: center;" class="col-md-2">
                         <table class="table table-bordered table-hover">
                             <tr>
-                                <td><a href="add_subject" style="color: black;">Subject</a></td>
+                                <td><a href="add" style="color: black;">Subject</a></td>
                             </tr>
                             <tr>
-                                <td><a href="subject.jsp" style="color: black;">Class</a></td>
+                                <td><a href="../class/add" style="color: black;">Class</a></td>
                             </tr>
                             <tr>
                                 <td><a href="teacher.jsp" style="color: black;">Student</a></td>
