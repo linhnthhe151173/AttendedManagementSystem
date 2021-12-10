@@ -32,6 +32,14 @@
         <servlet-name>CDetailController</servlet-name>
         <servlet-class>controller.admin.CDetailController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AccountDetailController</servlet-name>
+        <servlet-class>controller.admin.AccountDetailController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ScheduleController</servlet-name>
+        <servlet-class>controller.admin.ScheduleController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeTController</servlet-name>
         <url-pattern>/teacher/today_schedule</url-pattern>
@@ -63,6 +71,14 @@
     <servlet-mapping>
         <servlet-name>CDetailController</servlet-name>
         <url-pattern>/class_detail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccountDetailController</servlet-name>
+        <url-pattern>/account_detail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ScheduleController</servlet-name>
+        <url-pattern>/schedule_detail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

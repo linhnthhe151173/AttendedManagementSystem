@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="mr-5">Total Account</div>
                             </div>
-                            <a class="card-footer text-white clearfix small z-1" href="account.jsp">
+                            <a class="card-footer text-white clearfix small z-1" href="account_detail">
                                 <span class="float-left">${total_account} Account</span>
                                 <span class="float-right">
                                     <i class="fa fa-angle-right"></i>
@@ -97,7 +97,7 @@
                                 </div>
                                 <div class="mr-5">Total Schedule</div>
                             </div>
-                            <a class="card-footer text-white clearfix small z-1" href="schedule.jsp">
+                            <a class="card-footer text-white clearfix small z-1" href="schedule_detail">
                                 <span class="float-left">${total_schedule} Schedule</span>
                                 <span class="float-right">
                                     <i class="fa fa-angle-right"></i>

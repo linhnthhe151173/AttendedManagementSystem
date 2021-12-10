@@ -4,6 +4,8 @@
     Author     : Linh
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.Account"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,6 +17,9 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <title>subject_detail</title>
+        <%
+            ArrayList<Account> list_class = (ArrayList<Account>) request.getAttribute("list_account");
+        %>
     </head>
     <body>
         <!-- header -->
@@ -47,6 +52,7 @@
                 font-weight: bold;
                 color: #EF7F1B;">SUBJECT DETAIL</h4>
             <div style="margin-top: 20px;">
+                
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -69,6 +75,7 @@
                         </c:forEach>
                     </tbody>
                 </table>
+                
             </div>
 
         </div>

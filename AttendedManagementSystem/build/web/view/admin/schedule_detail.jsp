@@ -1,25 +1,21 @@
 <%-- 
-    Document   : subject_detail
-    Created on : Dec 10, 2021, 11:52:40 AM
+    Document   : schedule_detail
+    Created on : Dec 10, 2021, 12:56:55 PM
     Author     : Linh
 --%>
 
-<%@page import="java.util.ArrayList"%>
-<%@page import="model.Account"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <title>subject_detail</title>
-        <%
-            ArrayList<Account> list_class = (ArrayList<Account>) request.getAttribute("list_account");
-        %>
+        <title>schedule_detail</title>
     </head>
     <body>
         <!-- header -->
@@ -50,34 +46,34 @@
             <h4 style="text-align: center;
                 margin-top: 20px;
                 font-weight: bold;
-                color: #EF7F1B;">SUBJECT DETAIL</h4>
-            <div style="margin-top: 20px;">
-                
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">STT</th>
-                            <th scope="col">Subject Code</th>
-                            <th scope="col">Subject Name</th>
-                            <th scope="col">Total Slot</th>
-                            <th scope="col">Semester</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach items="${list_subject}" var="s" varStatus="status">
-                            <tr>
-                                <th scope="row">${status.count}</th>
-                                <td>${s.getSubjectCode()}</td>
-                                <td>${s.getSubjectName()}</td>
-                                <td>${s.getTotalSlot()}</td>
-                                <td>${s.getSemesterID().getSemesterName()}</td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
-                
-            </div>
+                color: #EF7F1B;">Schedule DETAIL</h4>
+            <hr>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">Teacher</th>
+                        <th scope="col">Subject</th>
+                        <th scope="col">Class</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time Slot</th>
+                    </tr>
 
+                </thead>
+                <tbody>
+                    <c:forEach items="${list}" var="i" varStatus="status">
+                        <tr>
+                            <td>${status.count}</td>
+                            <td>${i.getTeacherID().getTeacherName()}</td>
+                            <td>${i.getSubjectID().getSubjectCode()}</td>
+                            <td>${i.getClassID().getClassName()}</td>
+                            <td>${i.getScheduleDate()}</td>
+                            <td>${i.getTimeSlotID().getTimeSlotStart()} - ${i.getTimeSlotID().getTimeSlotEnd()}</td>
+                        </tr>
+                    </c:forEach>
+
+                </tbody>
+            </table>
         </div>
     </body>
 </html>
