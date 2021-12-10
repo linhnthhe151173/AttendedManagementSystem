@@ -71,7 +71,7 @@
                             <td>${i.getClassID().getClassName()}</td>
                             <td>${i.getScheduleDate()}</td>
                             <td>${i.getTimeSlotID().getTimeSlotStart()} - ${i.getTimeSlotID().getTimeSlotEnd()}</td>
-                            <td><a href="">Edit</a></td>
+                            <td><a href="schedule/edit?scheduleID=${i.getScheduleID()}">Edit</a></td>
                             <td><a href="">Remove</a></td>
                         </tr>
                     </c:forEach>

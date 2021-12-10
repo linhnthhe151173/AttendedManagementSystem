@@ -76,6 +76,10 @@
         <servlet-name>EditStudentController</servlet-name>
         <servlet-class>controller.student.EditController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditScheduleController</servlet-name>
+        <servlet-class>controller.schedule.EditController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeTController</servlet-name>
         <url-pattern>/teacher/today_schedule</url-pattern>
@@ -151,6 +155,10 @@
     <servlet-mapping>
         <servlet-name>EditStudentController</servlet-name>
         <url-pattern>/student/edit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditScheduleController</servlet-name>
+        <url-pattern>/schedule/edit</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

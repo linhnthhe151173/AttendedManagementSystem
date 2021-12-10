@@ -228,7 +228,30 @@ public class ScheduleDBContext extends DBContext {
             stm.setInt(3, s.getClassID().getClassID());
             stm.setInt(4, s.getTimeSlotID().getTimeSlotID());
             stm.setDate(5, s.getScheduleDate());
-            
+
+            stm.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ScheduleDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void update(Schedule s) {
+        try {
+            String sql = "UPDATE [dbo].[Schedule]\n"
+                    + "   SET [TeacherID] = ?\n"
+                    + "      ,[SubjectID] = ?\n"
+                    + "      ,[ClassID] = ?\n"
+                    + "      ,[TimeSlotID] = ?\n"
+                    + "      ,[ScheduleDate] = ?\n"
+                    + " WHERE ScheduleID = ?";
+            stm = connection.prepareStatement(sql);
+            stm.setInt(1, s.getTeacherID().getTeacherID());
+            stm.setInt(2, s.getSubjectID().getSubjectID());
+            stm.setInt(3, s.getClassID().getClassID());
+            stm.setInt(4, s.getTimeSlotID().getTimeSlotID());
+            stm.setDate(5, s.getScheduleDate());
+            stm.setInt(6, s.getScheduleID());
+
             stm.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ScheduleDBContext.class.getName()).log(Level.SEVERE, null, ex);
