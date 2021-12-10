@@ -82,7 +82,7 @@
                         <td><%=list.get(i).getTeacherPhone()%></td>
                         <td><%=list.get(i).getTeacherDOB()%></td>
                         <td><a href="../edit?teacherID=<%=list.get(i).getTeacherID()%>">Edit</a></td>
-                        <td><a href="">Remove</a></td>
+                        <td><a href="remove?teacherID=<%=list.get(i).getTeacherID()%>">Remove</a></td>
                     </tr>
                     <%
                         }

@@ -122,4 +122,17 @@ public class TeacherDBContext extends DBContext {
         }
     }
 
+    public void removeTeacherByID(int teacherID) {
+        try {
+            String sql = "DELETE FROM [dbo].[Teacher]\n"
+                    + "      WHERE TeacherID = ?";
+            stm = connection.prepareStatement(sql);
+            stm.setInt(1, teacherID);
+           
+            stm.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(TeacherDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }
