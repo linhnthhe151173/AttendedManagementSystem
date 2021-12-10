@@ -95,4 +95,18 @@ public class ClassDBContext extends DBContext {
             Logger.getLogger(SubjectDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public void update(Class c) {
+        try {
+            String sql = "UPDATE [dbo].[Class]\n"
+                    + "   SET [ClassName] = ?\n"
+                    + " WHERE ClassID = ?";
+            stm = connection.prepareStatement(sql);
+            stm.setString(1, c.getClassName());
+            stm.setInt(2, c.getClassID());
+            stm.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SubjectDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
