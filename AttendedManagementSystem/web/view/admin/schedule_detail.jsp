@@ -72,7 +72,7 @@
                             <td>${i.getScheduleDate()}</td>
                             <td>${i.getTimeSlotID().getTimeSlotStart()} - ${i.getTimeSlotID().getTimeSlotEnd()}</td>
                             <td><a href="schedule/edit?scheduleID=${i.getScheduleID()}">Edit</a></td>
-                            <td><a href="">Remove</a></td>
+                            <td><a href="schedule/remove?scheduleID=${i.getScheduleID()}">Remove</a></td>
                         </tr>
                     </c:forEach>
 

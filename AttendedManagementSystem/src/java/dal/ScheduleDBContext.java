@@ -258,4 +258,17 @@ public class ScheduleDBContext extends DBContext {
         }
     }
 
+    public void removeScheduleByID(int scheduleID) {
+        try {
+            String sql = "DELETE FROM [dbo].[Schedule]\n"
+                    + "      WHERE ScheduleID = ?";
+            stm = connection.prepareStatement(sql);
+            stm.setInt(1, scheduleID);
+            
+            stm.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ScheduleDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }
