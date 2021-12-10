@@ -24,6 +24,10 @@
         <servlet-name>HomeController</servlet-name>
         <servlet-class>controller.admin.HomeController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SubjectDetailController</servlet-name>
+        <servlet-class>controller.admin.SubjectDetailController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeTController</servlet-name>
         <url-pattern>/teacher/today_schedule</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SubjectDetailController</servlet-name>
+        <url-pattern>/subject_detail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
