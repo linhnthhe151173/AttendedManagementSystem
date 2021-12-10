@@ -127,10 +127,10 @@
                                 <td><a href="teacher/add" style="color: black;">Teacher</a></td>
                             </tr>
                             <tr>
-                                <td><a href="student.jsp" style="color: black;">Schedule</a></td>
+                                <td><a href="schedule/add" style="color: black;">Schedule</a></td>
                             </tr>
                             <tr>
-                                <td><a href="student.jsp" style="color: black;">Attendence Report</a></td>
+                                <td><a href="attendence/report" style="color: black;">Attendence Report</a></td>
                             </tr>
                         </table>
                     </div>

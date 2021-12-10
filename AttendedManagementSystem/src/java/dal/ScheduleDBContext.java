@@ -203,7 +203,7 @@ public class ScheduleDBContext extends DBContext {
                     + "from Schedule";
             stm = connection.prepareStatement(sql);
             rs = stm.executeQuery();
-            while (rs.next()) {                
+            while (rs.next()) {
                 total_schedule = rs.getInt(1);
             }
         } catch (SQLException ex) {
@@ -212,5 +212,27 @@ public class ScheduleDBContext extends DBContext {
         return total_schedule;
     }
 
+    public void insert(Schedule s) {
+        try {
+            String sql = "INSERT INTO [dbo].[Schedule]\n"
+                    + "           ([TeacherID]\n"
+                    + "           ,[SubjectID]\n"
+                    + "           ,[ClassID]\n"
+                    + "           ,[TimeSlotID]\n"
+                    + "           ,[ScheduleDate])\n"
+                    + "     VALUES\n"
+                    + "           (?, ?, ?, ?, ?)";
+            stm = connection.prepareStatement(sql);
+            stm.setInt(1, s.getTeacherID().getTeacherID());
+            stm.setInt(2, s.getSubjectID().getSubjectID());
+            stm.setInt(3, s.getClassID().getClassID());
+            stm.setInt(4, s.getTimeSlotID().getTimeSlotID());
+            stm.setDate(5, s.getScheduleDate());
+            
+            stm.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ScheduleDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 }

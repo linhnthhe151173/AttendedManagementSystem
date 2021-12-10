@@ -46,7 +46,7 @@
             <h4 style="text-align: center;
                 margin-top: 20px;
                 font-weight: bold;
-                color: #EF7F1B;">Schedule DETAIL</h4>
+                color: #EF7F1B;">SCHEDULE DETAIL</h4>
             <hr>
             <table class="table table-bordered">
                 <thead>

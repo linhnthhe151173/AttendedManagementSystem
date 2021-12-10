@@ -1,9 +1,14 @@
 <%-- 
-    Document   : home_admin
-    Created on : Dec 7, 2021, 4:05:09 PM
+    Document   : add_schedule
+    Created on : Dec 10, 2021, 4:19:45 PM
     Author     : Linh
 --%>
 
+<%@page import="model.TimeSlot"%>
+<%@page import="model.Teacher"%>
+<%@page import="model.Subject"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,7 +18,13 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <title>home_admin</title>
+        <title>add_schedule</title>
+        <%
+            ArrayList<Subject> list_subject = (ArrayList<Subject>) request.getAttribute("list_subject");
+            ArrayList<model.Class> list_class = (ArrayList<model.Class>) request.getAttribute("list_class");
+            ArrayList<Teacher> list_teacher = (ArrayList<Teacher>) request.getAttribute("list_teacher");
+            ArrayList<TimeSlot> list_timeslot = (ArrayList<TimeSlot>) request.getAttribute("list_timeslot");
+        %>
     </head>
     <body>
         <!-- header -->
@@ -115,27 +126,86 @@
                          text-align: center;" class="col-md-2">
                         <table class="table table-bordered table-hover">
                             <tr>
-                                <td><a href="subject/add" style="color: black;">Subject</a></td>
+                                <td><a href="add" style="color: black;">Subject</a></td>
                             </tr>
                             <tr>
-                                <td><a href="class/add" style="color: black;">Class</a></td>
+                                <td><a href="../class/add" style="color: black;">Class</a></td>
                             </tr>
                             <tr>
-                                <td><a href="student/add" style="color: black;">Student</a></td>
+                                <td><a href="teacher.jsp" style="color: black;">Student</a></td>
                             </tr>
                             <tr>
-                                <td><a href="teacher/add" style="color: black;">Teacher</a></td>
+                                <td><a href="assign_subject.jsp" style="color: black;">Teacher</a></td>
                             </tr>
                             <tr>
-                                <td><a href="schedule/add" style="color: black;">Schedule</a></td>
+                                <td><a href="student.jsp" style="color: black;">Schedule</a></td>
                             </tr>
                             <tr>
-                                <td><a href="attendence/report" style="color: black;">Attendence Report</a></td>
+                                <td><a href="student.jsp" style="color: black;">Attendence Report</a></td>
                             </tr>
                         </table>
                     </div>
-                    <div class="col-md-10" style="border: 1px solid #EF7F1B;">
-                        
+                    <div class="col-md-10 " style="border: 1px solid #EF7F1B;">
+                        <h5 style="color: #EF7F1B;
+                            margin-top: 15px;">ADD NEW SCHEDULE</h5>
+                        <form action="add" method="POST">
+                            <table style="margin-top: 20px;">
+                                <tr>
+                                    <td>Subject Code: </td>
+                                    <td><select name="subject">
+                                            <%
+                                                for (Subject s : list_subject) {
+                                            %>
+                                            <option value="<%=s.getSubjectID()%>"><%=s.getSubjectCode()%>(<%=s.getSubjectName()%>)</option>
+                                            <%
+                                                }
+                                            %>
+                                        </select></td>
+                                </tr>
+                                <tr>
+                                    <td>Class Name: </td>
+                                    <td><select name="class">
+                                            <%
+                                                for (model.Class c : list_class) {
+                                            %>
+                                            <option value="<%=c.getClassID()%>"><%=c.getClassName()%></option>
+                                            <%
+                                                }
+                                            %>
+                                        </select></td>
+                                </tr>
+                                <tr>
+                                    <td>Teacher Name: </td>
+                                    <td><select name="teacher">
+                                            <%
+                                                for (Teacher t : list_teacher) {
+                                            %>
+                                            <option value="<%=t.getTeacherID()%>"><%=t.getTeacherName()%></option>
+                                            <%
+                                                }
+                                            %>
+                                        </select></td>
+                                </tr>
+                                <tr>
+                                    <td>Date </td>
+                                    <td><input type="date" name="date" value="" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Time Slot: </td>
+                                    <td><select name="time">
+                                            <%
+                                                for (TimeSlot tm : list_timeslot) {
+                                            %>
+                                            <option value="<%=tm.getTimeSlotID() %>"><%=tm.getTimeSlotStart() %> - <%=tm.getTimeSlotEnd()%></option>
+                                            <%
+                                                }
+                                            %>
+                                        </select></td>
+                                </tr>
+                            </table>
+                            <button type="submmit" class="btn" style="background-color: #EF7F1B;
+                                    margin-top: 15px;">Save</button>
+                        </form>
                     </div>
                 </div>
 
