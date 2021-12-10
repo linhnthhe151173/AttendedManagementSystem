@@ -109,4 +109,24 @@ public class SubjectDBContext extends DBContext {
         }
     }
 
+    public void update(Subject s) {
+        try {
+            String sql = "UPDATE [dbo].[Subject]\n"
+                    + "   SET [SubjectCode] =?\n"
+                    + "      ,[TotalSlot] = ?\n"
+                    + "      ,[SemesterID] = ?\n"
+                    + "      ,[SubjectName] = ?\n"
+                    + " WHERE SubjectID = ?";
+            stm = connection.prepareStatement(sql);
+            stm.setString(1, s.getSubjectCode());
+            stm.setInt(2, s.getTotalSlot());
+            stm.setInt(3, s.getSemesterID().getSemesterID());
+            stm.setString(4, s.getSubjectName());
+            stm.setInt(5, s.getSubjectID());
+            stm.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SubjectDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }

@@ -20,7 +20,7 @@
     <body>
         <!-- header -->
         <nav class="navbar navbar-expand-md sticky-top" style="background-color: #EF7F1B;">
-            <a class="navbar-brand" href="#" style="color: white;">Attendence Management</a>
+            <a class="navbar-brand" href="home" style="color: white;">Attendence Management</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -57,6 +57,8 @@
                         <th scope="col">Class</th>
                         <th scope="col">Date</th>
                         <th scope="col">Time Slot</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Remove</th>
                     </tr>
 
                 </thead>
@@ -69,6 +71,8 @@
                             <td>${i.getClassID().getClassName()}</td>
                             <td>${i.getScheduleDate()}</td>
                             <td>${i.getTimeSlotID().getTimeSlotStart()} - ${i.getTimeSlotID().getTimeSlotEnd()}</td>
+                            <td><a href="">Edit</a></td>
+                            <td><a href="">Remove</a></td>
                         </tr>
                     </c:forEach>
 

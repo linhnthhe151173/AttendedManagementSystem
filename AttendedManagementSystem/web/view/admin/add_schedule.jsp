@@ -29,7 +29,7 @@
     <body>
         <!-- header -->
         <nav class="navbar navbar-expand-md sticky-top" style="background-color: #EF7F1B;">
-            <a class="navbar-brand" href="#" style="color: white;">Attendence Management</a>
+            <a class="navbar-brand" href="../home" style="color: white;">Attendence Management</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="mr-5">Total Subject</div>
                             </div>
-                            <a class="card-footer text-white clearfix small z-1" href="subject_detail">
+                            <a class="card-footer text-white clearfix small z-1" href="../subject_detail">
                                 <span class="float-left">${total_subject} Subject</span>
                                 <span class="float-right">
                                     <i class="fa fa-angle-right"></i>
@@ -76,7 +76,7 @@
                                 </div>
                                 <div class="mr-5">Total Class</div>
                             </div>
-                            <a class="card-footer text-white clearfix small z-1" href="class_detail">
+                            <a class="card-footer text-white clearfix small z-1" href="../class_detail">
                                 <span class="float-left">${total_class} Class</span>
                                 <span class="float-right">
                                     <i class="fa fa-angle-right"></i>
@@ -92,7 +92,7 @@
                                 </div>
                                 <div class="mr-5">Total Account</div>
                             </div>
-                            <a class="card-footer text-white clearfix small z-1" href="account_detail">
+                            <a class="card-footer text-white clearfix small z-1" href="../account_detail">
                                 <span class="float-left">${total_account} Account</span>
                                 <span class="float-right">
                                     <i class="fa fa-angle-right"></i>
@@ -108,7 +108,7 @@
                                 </div>
                                 <div class="mr-5">Total Schedule</div>
                             </div>
-                            <a class="card-footer text-white clearfix small z-1" href="schedule_detail">
+                            <a class="card-footer text-white clearfix small z-1" href="../schedule_detail">
                                 <span class="float-left">${total_schedule} Schedule</span>
                                 <span class="float-right">
                                     <i class="fa fa-angle-right"></i>
@@ -126,19 +126,19 @@
                          text-align: center;" class="col-md-2">
                         <table class="table table-bordered table-hover">
                             <tr>
-                                <td><a href="add" style="color: black;">Subject</a></td>
+                                <td><a href="../subject/add" style="color: black;">Subject</a></td>
                             </tr>
                             <tr>
                                 <td><a href="../class/add" style="color: black;">Class</a></td>
                             </tr>
                             <tr>
-                                <td><a href="teacher.jsp" style="color: black;">Student</a></td>
+                                <td><a href="../student/add" style="color: black;">Student</a></td>
                             </tr>
                             <tr>
-                                <td><a href="assign_subject.jsp" style="color: black;">Teacher</a></td>
+                                <td><a href="../teacher/add" style="color: black;">Teacher</a></td>
                             </tr>
                             <tr>
-                                <td><a href="student.jsp" style="color: black;">Schedule</a></td>
+                                <td><a href="add" style="color: black;">Schedule</a></td>
                             </tr>
                             <tr>
                                 <td><a href="student.jsp" style="color: black;">Attendence Report</a></td>

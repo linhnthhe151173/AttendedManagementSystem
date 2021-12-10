@@ -24,7 +24,7 @@
     <body>
         <!-- header -->
         <nav class="navbar navbar-expand-md sticky-top" style="background-color: #EF7F1B;">
-            <a class="navbar-brand" href="#" style="color: white;">Attendence Management</a>
+            <a class="navbar-brand" href="home" style="color: white;">Attendence Management</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -62,6 +62,8 @@
                             <th scope="col">Subject Name</th>
                             <th scope="col">Total Slot</th>
                             <th scope="col">Semester</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Remove</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,6 +74,8 @@
                                 <td>${s.getSubjectName()}</td>
                                 <td>${s.getTotalSlot()}</td>
                                 <td>${s.getSemesterID().getSemesterName()}</td>
+                                <td><a href="subject/edit?subjectID=${s.getSubjectID()}">Edit</a></td>
+                                <td><a href="">Remove</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>

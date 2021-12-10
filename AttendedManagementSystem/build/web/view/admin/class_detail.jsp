@@ -22,7 +22,7 @@
     <body>
         <!-- header -->
         <nav class="navbar navbar-expand-md sticky-top" style="background-color: #EF7F1B;">
-            <a class="navbar-brand" href="#" style="color: white;">Attendence Management</a>
+            <a class="navbar-brand" href="home" style="color: white;">Attendence Management</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -55,6 +55,8 @@
                         <tr>
                             <th scope="col">STT</th>
                             <th scope="col">Class Name</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Remove</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,6 +66,8 @@
                         <tr>
                             <th scope="row"><%=i+1%></th>
                             <td><%=list_class.get(i).getClassName()%></td>
+                            <td><a href="">Edit</a></td>
+                            <td><a href="">Remove</a></td>
                         </tr>
                         <%
                             }
