@@ -28,6 +28,10 @@
         <servlet-name>SubjectDetailController</servlet-name>
         <servlet-class>controller.admin.SubjectDetailController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CDetailController</servlet-name>
+        <servlet-class>controller.admin.CDetailController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeTController</servlet-name>
         <url-pattern>/teacher/today_schedule</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>SubjectDetailController</servlet-name>
         <url-pattern>/subject_detail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CDetailController</servlet-name>
+        <url-pattern>/class_detail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

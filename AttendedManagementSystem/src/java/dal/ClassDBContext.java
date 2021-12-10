@@ -3,6 +3,7 @@ package dal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Class;
@@ -53,4 +54,32 @@ public class ClassDBContext extends DBContext {
         return total_class;
     }
 
+    public ArrayList<Class> getAll() {
+        try {
+            ArrayList<Class> list = new ArrayList<>();
+            String sql = "select * from Class";
+            stm = connection.prepareStatement(sql);
+            rs = stm.executeQuery();
+            while (rs.next()) {  
+                Class c = Class.builder()
+                        .ClassID(rs.getInt(1))
+                        .ClassName(rs.getString(2))
+                        .build();
+                
+                list.add(c);
+            }
+            return list;
+        } catch (SQLException ex) {
+            Logger.getLogger(SubjectDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Class> list = new ArrayList<>();
+        list = new ClassDBContext().getAll();
+        for (Class class1 : list) {
+            System.out.println(class1);
+        }
+    }
 }
