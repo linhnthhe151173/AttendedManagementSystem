@@ -115,7 +115,7 @@ public class StudentDBContext extends DBContext {
             stm.setString(7, s.getStudentPhone());
             stm.setDate(8, s.getStudentDOB());
             stm.setInt(9, s.getSemesterID().getSemesterID());
-            
+
             rs = stm.executeQuery();
         } catch (SQLException ex) {
             Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
@@ -161,6 +161,38 @@ public class StudentDBContext extends DBContext {
         students = new StudentDBContext().getAll();
         for (Student student : students) {
             System.out.println(student);
+        }
+    }
+
+    public void update(Student s) {
+        try {
+            String sql = "UPDATE [dbo].[Student]\n"
+                    + "   SET [StudentID] = ?\n"
+                    + "      ,[StudentName] = ?\n"
+                    + "      ,[StudentImage] = ?\n"
+                    + "      ,[StudentGender] = ?\n"
+                    + "      ,[StudentAddress] = ?\n"
+                    + "      ,[StudentEmail] = ?\n"
+                    + "      ,[StudentPhone] = ?\n"
+                    + "      ,[StudentDOB] = ?\n"
+                    + "      ,[SemesterID] = ?\n"
+                    + " WHERE StudentID = ?";
+
+            stm = connection.prepareStatement(sql);
+            stm.setString(1, s.getStudentID());
+            stm.setString(2, s.getStudentName());
+            stm.setString(3, s.getStudentImage());
+            stm.setBoolean(4, s.isStudentGender());
+            stm.setString(5, s.getStudentAddress());
+            stm.setString(6, s.getStudentEmail());
+            stm.setString(7, s.getStudentPhone());
+            stm.setDate(8, s.getStudentDOB());
+            stm.setInt(9, s.getSemesterID().getSemesterID());
+            stm.setString(10, s.getStudentID());
+
+            rs = stm.executeQuery();
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
