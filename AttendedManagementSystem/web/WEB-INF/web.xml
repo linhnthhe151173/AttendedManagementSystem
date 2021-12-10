@@ -92,6 +92,10 @@
         <servlet-name>RemoveTeacherController</servlet-name>
         <servlet-class>controller.teacher.RemoveController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RemoveStudentController</servlet-name>
+        <servlet-class>controller.student.RemoveController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeTController</servlet-name>
         <url-pattern>/teacher/today_schedule</url-pattern>
@@ -183,6 +187,10 @@
     <servlet-mapping>
         <servlet-name>RemoveTeacherController</servlet-name>
         <url-pattern>/teacher/remove</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveStudentController</servlet-name>
+        <url-pattern>/student/remove</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

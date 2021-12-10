@@ -85,7 +85,7 @@
                             <td><%=list.get(i).getStudentDOB()%></td>
                             <td><%=list.get(i).getSemesterID().getSemesterName() %></td>
                             <td><a href="../student/edit?studentID=<%=list.get(i).getStudentID() %>">Edit</a></td>
-                            <td><a href="">Remove</a></td>
+                            <td><a href="../student/remove?studentID=<%=list.get(i).getStudentID() %>">Remove</a></td>
                         </tr>
                                 <%
                             }

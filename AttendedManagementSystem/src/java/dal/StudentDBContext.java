@@ -195,4 +195,18 @@ public class StudentDBContext extends DBContext {
             Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public void removeStudentByID(String studentID) {
+        try {
+            String sql = "DELETE FROM [dbo].[Student]\n"
+                    + "      WHERE StudentID = ?";
+
+            stm = connection.prepareStatement(sql);
+            stm.setString(1, studentID);
+           
+            rs = stm.executeQuery();
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
