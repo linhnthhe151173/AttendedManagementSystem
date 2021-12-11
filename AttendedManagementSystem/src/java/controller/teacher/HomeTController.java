@@ -1,6 +1,5 @@
 package controller.teacher;
 
-import controller.authentication.BasedAuthentication;
 import dal.AccountDBContext;
 import dal.AttendenceDBContext;
 import dal.ScheduleDBContext;

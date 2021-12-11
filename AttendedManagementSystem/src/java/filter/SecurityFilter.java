@@ -25,7 +25,8 @@ import model.Account;
 "AddTeacherController", "TeacherDetailController", "AddScheduleController", "EditSubjectController", 
 "EditStudentController", "EditScheduleController", "RemoveSubjectController", "RemoveClassController", "RemoveTeacherController",
 "RemoveStudentController", "RemoveScheduleController", "EditAttendenceController", "AttendenceDetailController",
-"ProfileController", "AccountDetailController"}, urlPatterns = {"/teacher/other_schedule","/class/add", "/class/edit", "/teacher/edit"})
+"ProfileController", "AccountDetailController"}, urlPatterns = {"/teacher/other_schedule","/class/add", "/class/edit", 
+    "/teacher/edit", "/teacher/home_admin"})
 public class SecurityFilter implements Filter {
 
     @Override

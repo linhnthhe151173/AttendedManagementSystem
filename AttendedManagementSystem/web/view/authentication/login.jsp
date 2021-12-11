@@ -33,7 +33,7 @@
                         <div class="imgcontainer">
                             <img src="img/avatar.png" alt="Avatar" class="avatar" style="width: 100px;height: 100px;">
                         </div>
-                        <form action="login" method="POST">
+                        <form action="../loginA" method="POST">
                             <div class="container">
                                 <label for="uname"><b>Username</b></label>
                                 <input type="text" placeholder="Enter Username" name="username" required>

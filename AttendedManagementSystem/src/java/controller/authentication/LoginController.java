@@ -50,7 +50,7 @@ public class LoginController extends HttpServlet {
             if(loggedAccount.getRoleID().getRoleID() == 2){
                 response.sendRedirect("teacher/today_schedule");
             } else if(loggedAccount.getRoleID().getRoleID() == 1){
-                response.sendRedirect("home");
+                response.sendRedirect("teacher/home_admin");
             }
         } else {
             response.sendRedirect("login");
