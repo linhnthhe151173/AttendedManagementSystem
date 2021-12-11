@@ -36,10 +36,10 @@
             <div id="navb" class="navbar-collapse collapse hide">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: white;"><span class="fas fa-user"></span>LinhNTHHE151173</a>
+                        <a class="nav-link" href="" style="color: white;"><span class="fas fa-user"></span>${sessionScope.account.getDisplayName()}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: white;"><span class="fas fa-sign-in-alt"></span>| Logout</a>
+                        <a class="nav-link" href="../login" style="color: white;"><span class="fas fa-sign-in-alt"></span>| Logout</a>
                     </li>
                 </ul>
             </div>

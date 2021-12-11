@@ -29,7 +29,7 @@
                         <a class="nav-link" href="profile?teacherID=${t.getTeacherID()}" style="color: white;"><span class="fas fa-user"></span>${sessionScope.account.getDisplayName()}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: white;"><span class="fas fa-sign-in-alt"></span>| Logout</a>
+                        <a class="nav-link" href="../logout" style="color: white;"><span class="fas fa-sign-in-alt"></span>| Logout</a>
                     </li>
                 </ul>
             </div>
