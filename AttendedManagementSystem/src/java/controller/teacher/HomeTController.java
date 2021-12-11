@@ -1,6 +1,10 @@
 package controller.teacher;
 
+import controller.authentication.BasedAuthentication;
+import dal.AccountDBContext;
+import dal.AttendenceDBContext;
 import dal.ScheduleDBContext;
+import dal.TeacherDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
@@ -10,7 +14,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Account;
+import model.Attendence;
 import model.Schedule;
+import model.Teacher;
 
 /**
  *
@@ -21,28 +28,29 @@ public class HomeTController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        long millis = System.currentTimeMillis();
-        Date date = new Date(millis);
+            //chay today_schedule
+            Account a = (Account) request.getSession().getAttribute("account");
+            
+            Teacher t = Teacher.builder()
+                    .TeacherEmail(a.getUsername()).build();
+            t = new TeacherDBContext().getTeacherByEmail(t);
+            
+            long millis = System.currentTimeMillis();
+            Date date = new Date(millis);
+
+            //get today's schedule
+            ArrayList<Schedule> list_schedule = new ArrayList<>();
+            ScheduleDBContext dbSche = new ScheduleDBContext();
+
+            list_schedule = dbSche.getScheduleByDate(date, t);
+
+            request.setAttribute("date", date);
+            request.setAttribute("t", t);
+            request.setAttribute("list_schedule", list_schedule);
+            request.getRequestDispatcher("../view/teacher/today_schedule.jsp").forward(request, response);
         
-        //get today's schedule
-        ArrayList<Schedule> list_schedule = new ArrayList<>();
-        ScheduleDBContext dbSche = new ScheduleDBContext();
-        
-        list_schedule = dbSche.getScheduleByDate(date);
-        
-        request.setAttribute("date", date);
-        request.setAttribute("list_schedule", list_schedule);
-        request.getRequestDispatcher("../view/teacher/today_schedule.jsp").forward(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
