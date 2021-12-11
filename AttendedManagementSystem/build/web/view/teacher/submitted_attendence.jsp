@@ -94,7 +94,7 @@
                 <c:forEach items="${list_attendence}" var="a" varStatus="status">
                     <c:if test="${status.last}">
                         <button type="button" class="btn" style="background-color: #EF7F1B;
-                                margin-top: 15px;"><a href="today_schedule?scheduleID=${a.getScheduleID().getScheduleID()}" style="color: white;
+                                margin-top: 15px;"><a href="today_schedule" style="color: white;
                              text-decoration: none;">Check</a></button>
                         </c:if>
 

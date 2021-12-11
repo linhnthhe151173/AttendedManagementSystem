@@ -19,14 +19,14 @@
     <body>
         <!-- header -->
         <nav class="navbar navbar-expand-md sticky-top" style="background-color: #EF7F1B;">
-            <a class="navbar-brand" href="today_schedule" style="color: white;">Attendence Management</a>
+            <a class="navbar-brand" href="" style="color: white;">Attendence Management</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div id="navb" class="navbar-collapse collapse hide">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: white;"><span class="fas fa-user"></span>LinhNTHHE151173</a>
+                        <a class="nav-link" href="profile?teacherID=${t.getTeacherID()}" style="color: white;"><span class="fas fa-user"></span>${sessionScope.account.getDisplayName()}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" style="color: white;"><span class="fas fa-sign-in-alt"></span>| Logout</a>
@@ -96,8 +96,16 @@
                                                     <td>${s.getTeacherID().getTeacherName()}</td>
                                                     <td>${s.getSubjectID().getSubjectCode()}</td>
                                                     <td>${s.getSubjectID().getSubjectName()}</td>
-                                                    <td><a href="attendence?scheduleID=${s.getScheduleID()}&classID=${s.getClassID().getClassID()}">${s.getClassID().getClassName()}</a></td>
+                                                    <c:choose>
+                                                        <c:when test="${scheduleID == s.getScheduleID()}">
+                                                            <td><a href="../class_model/class_detail?ClassID=${s.getClassID().getClassID()}">${s.getClassID().getClassName()}</a></td>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                            <td><a href="attendence?scheduleID=${s.getScheduleID()}&classID=${s.getClassID().getClassID()}">${s.getClassID().getClassName()}</a></td>
+                                                            </c:otherwise>
+                                                        </c:choose>
                                                     <td>${s.getTimeSlotID().getTimeSlotStart()} - ${s.getTimeSlotID().getTimeSlotEnd()}</td>
+
                                                 </tr>
                                             </c:forEach>                                            
                                         </tbody>

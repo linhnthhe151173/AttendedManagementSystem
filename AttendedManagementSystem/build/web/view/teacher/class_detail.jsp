@@ -37,10 +37,6 @@
 
         <!-- Container -->
         <div class="container">
-            <div>
-                <button type="button" class="btn" style="background-color: #EF7F1B;"><a href="../teacher/other_schedule" style="color: white;
-                                                                                        text-decoration: none;">Back</a></button>
-            </div>
             <div style="padding-top: 10px;">
                 <h4 style="text-align: center;">Class name: <span style="color: #EF7F1B;">${c.getClassName()}</span></h4>   
             </div>

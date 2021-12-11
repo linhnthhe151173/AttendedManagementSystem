@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Account;
 import model.Schedule;
 import model.Subject;
 import model.Teacher;
@@ -21,14 +22,17 @@ public class ScheduleDBContext extends DBContext {
     private PreparedStatement stm;
     private ResultSet rs;
 
-    public ArrayList<Schedule> getScheduleByDate(Date date) {
+    public ArrayList<Schedule> getScheduleByDate(Date date, Teacher a) {
         ArrayList<Schedule> listSchedule = new ArrayList<>();
         try {
-            String sql = "select * from Schedule\n"
-                    + "where ScheduleDate = ?";
+            String sql = "select Schedule.* from Schedule left join Attendence\n"
+                    + "on Schedule.ScheduleID = Attendence.ScheduleID\n"
+                    + "where AttendenceID is null and ScheduleDate = ?\n"
+                    + "and TeacherID = ?";
 
             stm = connection.prepareStatement(sql);
             stm.setDate(1, date);
+            stm.setInt(2, a.getTeacherID());
             rs = stm.executeQuery();
 
             while (rs.next()) {
@@ -67,7 +71,12 @@ public class ScheduleDBContext extends DBContext {
         ArrayList<Schedule> listSchedule = new ArrayList<>();
         ScheduleDBContext dao = new ScheduleDBContext();
 
-        listSchedule = dao.getAll();
+        Teacher teacher = Teacher.builder()
+                .TeacherID(1).build();
+        long millis = System.currentTimeMillis();
+        Date date = new Date(millis);
+
+        listSchedule = dao.getScheduleByDate2(date, teacher);
         for (Schedule schedule : listSchedule) {
             System.out.println(schedule);
         }
@@ -264,11 +273,96 @@ public class ScheduleDBContext extends DBContext {
                     + "      WHERE ScheduleID = ?";
             stm = connection.prepareStatement(sql);
             stm.setInt(1, scheduleID);
-            
+
             stm.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ScheduleDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public ArrayList<Schedule> getScheduleByDate2(Date search_date, Teacher teacher) {
+        ArrayList<Schedule> listSchedule = new ArrayList<>();
+        try {
+            String sql = "select * from Schedule where ScheduleDate = ?\n"
+                    + "and TeacherID = ?";
+
+            stm = connection.prepareStatement(sql);
+            stm.setDate(1, search_date);
+            stm.setInt(2, teacher.getTeacherID());
+            rs = stm.executeQuery();
+
+            while (rs.next()) {
+
+                Teacher t = Teacher.builder().TeacherID(rs.getInt(2)).build();
+                t = new TeacherDBContext().getOne(t);
+
+                Subject su = Subject.builder().SubjectID(rs.getInt(3)).build();
+                su = new SubjectDBContext().getOne(su);
+
+                model.Class c = model.Class.builder().ClassID(rs.getInt(4)).build();
+                c = new ClassDBContext().getOne(c);
+
+                Date dateSchedule = Date.valueOf(rs.getString(6));
+
+                TimeSlot ts = TimeSlot.builder().TimeSlotID(rs.getInt(5)).build();
+                ts = new TimeSlotDBContext().getOne(ts);
+
+                Schedule s = Schedule.builder().ScheduleID(rs.getInt(1))
+                        .TeacherID(t)
+                        .SubjectID(su)
+                        .ClassID(c)
+                        .TimeSlotID(ts)
+                        .ScheduleDate(dateSchedule).build();
+
+                listSchedule.add(s);
+            }
+            return listSchedule;
+        } catch (SQLException ex) {
+            Logger.getLogger(ScheduleDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public ArrayList<Schedule> getAllScheduleByTeacher(Teacher teacher) {
+        ArrayList<Schedule> listSchedule = new ArrayList<>();
+        try {
+            String sql = "select * from Schedule\n"
+                    + "where TeacherID = ?";
+
+            stm = connection.prepareStatement(sql);
+            stm.setInt(1, teacher.getTeacherID());
+            rs = stm.executeQuery();
+
+            while (rs.next()) {
+
+                Teacher t = Teacher.builder().TeacherID(rs.getInt(2)).build();
+                t = new TeacherDBContext().getOne(t);
+
+                Subject su = Subject.builder().SubjectID(rs.getInt(3)).build();
+                su = new SubjectDBContext().getOne(su);
+
+                model.Class c = model.Class.builder().ClassID(rs.getInt(4)).build();
+                c = new ClassDBContext().getOne(c);
+
+                Date dateSchedule = Date.valueOf(rs.getString(6));
+
+                TimeSlot ts = TimeSlot.builder().TimeSlotID(rs.getInt(5)).build();
+                ts = new TimeSlotDBContext().getOne(ts);
+
+                Schedule s = Schedule.builder().ScheduleID(rs.getInt(1))
+                        .TeacherID(t)
+                        .SubjectID(su)
+                        .ClassID(c)
+                        .TimeSlotID(ts)
+                        .ScheduleDate(dateSchedule).build();
+
+                listSchedule.add(s);
+            }
+            return listSchedule;
+        } catch (SQLException ex) {
+            Logger.getLogger(ScheduleDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
 }

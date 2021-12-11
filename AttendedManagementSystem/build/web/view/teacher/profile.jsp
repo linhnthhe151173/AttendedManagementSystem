@@ -18,14 +18,14 @@
     <body>
         <!-- header -->
         <nav class="navbar navbar-expand-md sticky-top" style="background-color: #EF7F1B;margin-bottom: 20px;">
-            <a class="navbar-brand" href="today_schedule.jsp" style="color: white;">Attendence Management</a>
+            <a class="navbar-brand" href="today_schedule" style="color: white;">Attendence Management</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div id="navb" class="navbar-collapse collapse hide">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: white;"><span class="fas fa-user"></span>LinhNTHHE151173</a>
+                        <a class="nav-link" href="profile?teacherID=${t.getTeacherID()}" style="color: white;"><span class="fas fa-user"></span>LinhNTHHE151173</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" style="color: white;"><span class="fas fa-sign-in-alt"></span>| Logout</a>
@@ -37,7 +37,7 @@
         <div class="container rounded bg-white mt-5 mb-5" style="border: 1px solid #EF7F1B;">
             <div class="row">
                 <div class="col-md-5 border-right">
-                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img style="width: 200px;height: 300px;" src="../../img/teacher1.jfif"><span class="font-weight-bold">Amelly</span><span class="text-black-50">amelly12@bbb.com</span><span> </span></div>
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img style="width: 200px;height: 300px;" src="../img/${t.getTeacherImage()}"><span class="font-weight-bold">${t.getTeacherName()}</span><span class="text-black-50">${t.getTeacherEmail()}</span><span> </span></div>
                 </div>
                 <div class="col-md-7 border-right">
                     <div class="p-3 py-5">
@@ -48,19 +48,19 @@
                             <table class="table table-bordered">
                                 <tr>
                                     <td>Gender</td>
-                                    <td>Female</td>
+                                    <td>${t.isTeacherGender() == true ? "Male" : "Female"}</td>
                                 </tr>
                                 <tr>
                                     <td>Date Of Birth</td>
-                                    <td>02-08-2001</td>
+                                    <td>${t.getTeacherDOB()}</td>
                                 </tr>
                                 <tr>
                                     <td>Address</td>
-                                    <td>None</td>
+                                    <td>${t.getTeacherAddress()}</td>
                                 </tr>
                                 <tr>
                                     <td>Phone number</td>
-                                    <td>123</td>
+                                    <td>${t.getTeacherPhone()}</td>
                                 </tr>
                             </table>
                         </div>

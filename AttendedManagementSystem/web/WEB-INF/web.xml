@@ -100,6 +100,18 @@
         <servlet-name>RemoveScheduleController</servlet-name>
         <servlet-class>controller.schedule.RemoveController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditAttendenceController</servlet-name>
+        <servlet-class>controller.attendence.EditController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AttendenceDetailController</servlet-name>
+        <servlet-class>controller.attendence.AttendenceDetailController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProfileController</servlet-name>
+        <servlet-class>controller.teacher.ProfileController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeTController</servlet-name>
         <url-pattern>/teacher/today_schedule</url-pattern>
@@ -199,6 +211,18 @@
     <servlet-mapping>
         <servlet-name>RemoveScheduleController</servlet-name>
         <url-pattern>/schedule/remove</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditAttendenceController</servlet-name>
+        <url-pattern>/attendence/edit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AttendenceDetailController</servlet-name>
+        <url-pattern>/attendence/attendence_detail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfileController</servlet-name>
+        <url-pattern>/teacher/profile</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

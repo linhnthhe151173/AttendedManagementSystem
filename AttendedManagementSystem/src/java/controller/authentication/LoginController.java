@@ -46,7 +46,12 @@ public class LoginController extends HttpServlet {
                 response.addCookie(user);
             }
             //response.getWriter().println("login successful!");
-            response.sendRedirect("teacher/today_schedule");
+            //response.sendRedirect("teacher/today_schedule");
+            if(loggedAccount.getRoleID().getRoleID() == 2){
+                response.sendRedirect("teacher/today_schedule");
+            } else if(loggedAccount.getRoleID().getRoleID() == 1){
+                response.sendRedirect("home");
+            }
         } else {
             response.sendRedirect("login");
             //response.getWriter().println("login failed!");

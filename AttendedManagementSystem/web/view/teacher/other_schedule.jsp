@@ -28,7 +28,7 @@
             <div id="navb" class="navbar-collapse collapse hide">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: white;"><span class="fas fa-user"></span>LinhNTHHE151173</a>
+                        <a class="nav-link" href="" style="color: white;"><span class="fas fa-user"></span>${sessionScope.account.getDisplayName()}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" style="color: white;"><span class="fas fa-sign-in-alt"></span>| Logout</a>
@@ -71,10 +71,24 @@
                                         <tr>
                                             <th scope="row">${status.count}</th>
                                             <td>${sa.getSubjectID().getSubjectCode()}</td>
-                                            <td><a href="../class_model/class_detail?ClassID=${sa.getClassID().getClassID()}">${sa.getClassID().getClassName()}</a></td>
+                                            <c:choose>
+                                                <c:when test="${sa.getScheduleDate() < date }">
+                                                    <td><a href="../attendence/attendence_detail?scheduleID=${sa.getScheduleID()}">${sa.getClassID().getClassName()}</a></td>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <td><a href="../class_model/class_detail?ClassID=${sa.getClassID().getClassID()}">${sa.getClassID().getClassName()}</a></td>
+                                                </c:otherwise>
+                                            </c:choose>
                                             <td>${sa.getTimeSlotID().getTimeSlotStart()} - ${sa.getTimeSlotID().getTimeSlotEnd()}</td>
                                             <td>${sa.getScheduleDate()}</td>
-                                            <td><a href="attendence.jsp">Edit</a></td>
+                                            <c:choose>
+                                                <c:when test="${sa.getScheduleDate() < date }">
+                                                    <td><a href="../attendence/edit?scheduleID=${sa.getScheduleID()}">Edit</a></td>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <td>No edit</td>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </tr>
                                     </c:forEach>
 
@@ -118,9 +132,17 @@
                                                             <th scope="row">${status.count}</th>
                                                             <td>${s.getSubjectID().getSubjectCode()}</td>
                                                             <td>${s.getSubjectID().getSubjectName()}</td>
+                                                            
                                                             <td><a href="../class_model/class_detail?ClassID=${s.getClassID().getClassID()}">${s.getClassID().getClassName()}</a></td>
                                                             <td>${s.getTimeSlotID().getTimeSlotStart()} - ${s.getTimeSlotID().getTimeSlotEnd()}</td>
-                                                            <td><a href="attendence.jsp">Edit</a></td>
+                                                            <c:choose>
+                                                                <c:when test="${s.getScheduleDate() < date}">
+                                                                    <td><a href="../attendence/edit?scheduleID=${s.getScheduleID()}">Edit</a></a></td>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <td>No edit</td>
+                                                                </c:otherwise>
+                                                            </c:choose>
                                                         </tr>
                                                     </c:forEach>
                                                 </tbody>

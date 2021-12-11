@@ -58,8 +58,12 @@ public class AttendenceDBContext extends DBContext {
     }
 
     public static void main(String[] args) {
-        Attendence a = new AttendenceDBContext().getAttendenceBySIdAndSchID("HE1511", 11);
-        System.out.println(a);
+        ArrayList<Attendence> attendeds = new ArrayList<>();
+        attendeds = new AttendenceDBContext().getAll();
+        for (Attendence attended : attendeds) {
+            System.out.println(attended);
+        }
+
     }
 
     public ArrayList<Attendence> getAttendeds(int scheduleID) {
@@ -130,10 +134,55 @@ public class AttendenceDBContext extends DBContext {
             String sql = "UPDATE [dbo].[Attendence]\n"
                     + "   SET [Present] = ?\n"
                     + " WHERE AttendenceID = ?";
-            
+
             stm = connection.prepareStatement(sql);
             stm.setBoolean(1, attendence);
             stm.setInt(2, a.getAttendenceID());
+            stm.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(AttendenceDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public ArrayList<Attendence> getAll() {
+        ArrayList<Attendence> attendeds = new ArrayList<>();
+        try {
+            String sql = "select * from Attendence";
+
+            stm = connection.prepareStatement(sql);
+            rs = stm.executeQuery();
+
+            while (rs.next()) {
+                Student s = Student.builder().StudentID(rs.getString(2)).build();
+                s = new StudentDBContext().getOne(s);
+
+                Schedule sc = new ScheduleDBContext().getScheduleByID(rs.getInt(3));
+
+                Attendence a = Attendence.builder()
+                        .AttendenceID(rs.getInt(1))
+                        .StudentID(s)
+                        .ScheduleID(sc)
+                        .Present(rs.getBoolean(4))
+                        .AttendenceDate(rs.getDate(5)).build();
+
+                attendeds.add(a);
+            }
+            return attendeds;
+        } catch (SQLException ex) {
+            Logger.getLogger(AttendenceDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public void updateAttendence(Attendence at) {
+        try {
+            String sql = "update Attendence\n"
+                    + "  set Present = ?\n"
+                    + "  where StudentID = ? and ScheduleID = ?";
+            stm = connection.prepareStatement(sql);
+            stm.setBoolean(1, at.isPresent());
+            stm.setString(2, at.getStudentID().getStudentID());
+            stm.setInt(3, at.getScheduleID().getScheduleID());
             stm.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(AttendenceDBContext.class.getName()).log(Level.SEVERE, null, ex);

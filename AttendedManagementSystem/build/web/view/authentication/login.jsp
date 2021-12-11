@@ -19,7 +19,7 @@
     <body>
         <!-- header -->
         <nav class="navbar">
-            <a class="navbar-brand" href="#">Attendence Management System</a>
+            <a class="navbar-brand" href="login">Attendence Management System</a>
         </nav>
 
         <!-- Container -->
@@ -29,7 +29,7 @@
                     <img src="img/login.jpg" class="img-fluid" alt="Responsive image" style="margin-top: 50px;">
                 </div>
                 <div class="col-md-6"">
-                    <form action="#" method="post">
+                    <form action="login" method="post">
                         <div class="imgcontainer">
                             <img src="img/avatar.png" alt="Avatar" class="avatar" style="width: 100px;height: 100px;">
                         </div>
